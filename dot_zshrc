@@ -109,7 +109,7 @@ export DISABLE_OPENCOLLECTIVE=true
 export NODE_ENV=development
 
 # Github secret token for npm to be able to install from private repos/packages (ie: @entr-engineering/schemas)
-export NPM_TOKEN=74aea954e3e81088123c8f730f284459cae51acb
+export NPM_TOKEN=
 
 # Add neovim path
 export PATH="$PATH:$HOME/nvim-macos/bin" 
