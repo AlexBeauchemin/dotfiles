@@ -1,4 +1,11 @@
-source .zshrc.secrets
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+source ~/.zshrc.secrets
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -10,7 +17,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -72,7 +80,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git zsh-autosuggestions zsh-better-npm-completion)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -89,6 +97,8 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
+
+export EDITOR="nvim"
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -113,6 +123,9 @@ export NODE_ENV=development
 # Add neovim path
 export PATH="$PATH:$HOME/nvim-macos/bin" 
 
+# Add android sdk
+export PATH="$PATH:$HOME/android_sdk/cmdline-tools/latest/bin" 
+
 # Add brew to path
 export PATH=/opt/homebrew/bin:$PATH
 
@@ -131,15 +144,47 @@ alias git='LANG=en_US git'
 # ssh-add -K ~/.ssh/abeauchemin-planned-Gi
 
 # Add neovim aliases
-alias v='lvim'
-alias vim='lvim'
+alias v='nvim'
+alias vim='nvim'
+alias oil='nvim -c Oil'
 
 alias asdf='cd ~/planned'
+alias qa='exit'
+alias qq='exit'
+alias :qa='exit'
+alias lock='open -b com.apple.ScreenSaver.Engine'
+alias :lock='open -b com.apple.ScreenSaver.Engine'
 
-plugins+=(zsh-better-npm-completion)
+# Search and open the selected file in neovim
+alias fuzzy='fzf --preview="cat {}" | xargs -r nvim'
 
+plugins+=( 
+    # other plugins...
+)
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+# Init zoxide and replace cd
+eval "$(zoxide init zsh)"
+alias cd='z'
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+
+PATH=~/.console-ninja/.bin:$PATH
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/alex/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/alex/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/alex/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/alex/google-cloud-sdk/completion.zsh.inc'; fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+. "$HOME/.atuin/bin/env"
+
+eval "$(atuin init zsh)"
+
+# Handle hidden/dotfiles by default
+# https://askubuntu.com/questions/259383/how-can-i-get-mv-or-the-wildcard-to-move-hidden-files
+setopt globdots

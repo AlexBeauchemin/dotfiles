@@ -1,0 +1,41 @@
+keybinds {
+    normal {
+        // default is Ctrl + h / conflicts with my custom kitty config to move panes
+        // bind "Ctrl m" { SwitchToMode "Move"; }
+        // bind "Alt m" { SwitchToMode "Move"; }
+    }
+    shared_except "move" "locked" {
+        // bind "Ctrl m" { SwitchToMode "Move"; }
+    }
+}
+
+theme "poimandres"
+
+themes {
+    nord {
+        fg "#D8DEE9"
+        bg "#2E3440"
+        black "#3B4252"
+        red "#BF616A"
+        green "#A3BE8C"
+        yellow "#EBCB8B"
+        blue "#81A1C1"
+        magenta "#B48EAD"
+        cyan "#88C0D0"
+        white "#E5E9F0"
+        orange "#D08770"
+    }
+    poimandres {
+        fg "#FFFFF0"
+        bg "#00008B"
+        black "#000000"
+        red "#DC143C"
+        green "#50C878"
+        yellow "#FFD700"
+        blue "#BD93F9"
+        magenta "#4B0082"
+        cyan "#8BE9FD"
+        white "#F8F8F2"
+        orange "#F087BD"
+    }
+}
