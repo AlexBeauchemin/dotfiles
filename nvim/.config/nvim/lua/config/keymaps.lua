@@ -9,6 +9,7 @@ vim.keymap.set("n", "<Esc>", function()
   vim.cmd("noh")
   vim.cmd("cclose")
   vim.cmd("Neotree close")
+  Close_floats()
 end, { silent = true })
 
 -- Map M-l to M-CR for insert and normal mode
@@ -20,3 +21,19 @@ vim.keymap.set("n", "<C-BS>", "daw", { remap = true, silent = true })
 vim.keymap.set("i", "<C-BS>", "<esc>caw", { remap = true, silent = true })
 vim.keymap.set("n", "<M-BS>", "daw", { remap = true, silent = true })
 vim.keymap.set("i", "<M-BS>", "<esc>caw", { remap = true, silent = true })
+
+-- Restart language server
+vim.keymap.set("n", "<leader>cx", ":LspRestart<CR>", { silent = true, desc = "Restart LSP" })
+
+-- Open full line diagnostic in a floating window to see the full error message
+vim.keymap.set("n", "gl", ":lua vim.diagnostic.open_float()<CR>", { silent = true, desc = "Show full line diagnostic" })
+
+-- Function to close diagnostic floats and other
+-- taken from: https://www.reddit.com/r/neovim/comments/1335pfc/is_there_any_generic_simple_way_to_close_floating/ji918lo/
+function Close_floats()
+  for _, win in ipairs(vim.api.nvim_list_wins()) do
+    if vim.api.nvim_win_get_config(win).relative == "win" then
+      vim.api.nvim_win_close(win, false)
+    end
+  end
+end
