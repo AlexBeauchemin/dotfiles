@@ -12,6 +12,7 @@ return {
         suggestion_color = "#D0679D",
         cterm = 244,
       },
+      log_level = "warn",
     })
   end,
 }

@@ -12,5 +12,6 @@ return {
     window = {
       position = "right",
     },
+    log_level = "warn",
   },
 }
