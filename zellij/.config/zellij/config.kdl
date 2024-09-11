@@ -10,6 +10,7 @@ keybinds {
 }
 
 theme "poimandres"
+// theme "catppuccin-mocha"
 
 themes {
     nord {
