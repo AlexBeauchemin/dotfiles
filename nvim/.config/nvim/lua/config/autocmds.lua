@@ -8,3 +8,9 @@ require("lspconfig")["vtsls"].setup({
     require("twoslash-queries").attach(client, bufnr)
   end,
 })
+
+-- Auto save all the things
+vim.api.nvim_create_autocmd(
+  { "FocusLost", "ModeChanged", "TextChanged", "BufEnter" },
+  { desc = "autosave", pattern = "*", command = "silent! update" }
+)
