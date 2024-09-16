@@ -1,0 +1,39 @@
+; https://jvns.ca/blog/2024/02/16/popular-git-config-options/
+[user]
+  email = alexbeauchemin01@gmail.com
+  name = Alex Beauchemin
+  signingKey = 764C3D89490A73D93CBE99F47793470B9162F4FC
+[merge]
+  tool = vscode
+  ; conflictstyle = zdiff3
+[mergetool "vscode"]
+  cmd = code --wait $MERGED
+[diff]
+  tool = vscode
+  algorithm = histogram
+[difftool "vscode"]
+  cmd = code --wait --diff $LOCAL $REMOTE
+[gpg]
+  program = gpg
+  format = openpgp
+[commit]
+  gpgSign = true
+[tag]
+  forceSignAnnotated = false
+
+[init]
+  defaultBranch = main
+[push]
+  autoSetupRemote = true
+[branch]
+  sort = -committerdate
+[gpg "ssh"]
+  program = ssh-keygen
+  allowedSignersFile =
+
+; Change user email and name for work repos
+; https://blog.hao.dev/how-to-use-different-git-emails-for-personal-and-work-repositories-on-the-same-machine
+; https://gist.github.com/Icaruk/f024a18093dc28ec1588cfb90efc32f7
+; run "git config user.email" inside a work repo to test
+[includeIf "gitdir:~/planned/"]
+	path = ~/.gitconfig-work
