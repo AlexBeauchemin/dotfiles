@@ -14,3 +14,6 @@ vim.api.nvim_create_autocmd(
   { "FocusLost", "ModeChanged", "TextChanged", "BufEnter" },
   { desc = "autosave", pattern = "*", command = "silent! update" }
 )
+
+-- Setup the :TSC command to get project-wide diagnostics
+require("tsc").setup()
