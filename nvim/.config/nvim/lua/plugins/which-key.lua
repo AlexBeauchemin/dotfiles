@@ -3,5 +3,10 @@ return {
   event = "VeryLazy",
   opts = {
     preset = "modern",
+    -- win = {
+    --   wo = {
+    --     winblend = 100,
+    --   },
+    -- },
   },
 }

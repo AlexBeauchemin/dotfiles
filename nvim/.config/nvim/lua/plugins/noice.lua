@@ -9,5 +9,7 @@ return {
         silent = true,
       },
     },
+    -- Make background transparent
+    views = { mini = { win_options = { winblend = 0 } } },
   },
 }

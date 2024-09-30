@@ -48,11 +48,13 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      -- colorscheme = "material",
-      -- colorscheme = "tokyonight",
-      -- colorscheme = "catppuccin",
+      -- colorscheme = "tokyobones",
+      colorscheme = "material",
+      -- colorscheme = "aura-dark",
+      -- colorscheme = "tokyonight-moon",
+      -- colorscheme = "catppuccin-mocha",
       -- colorscheme = "carbonfox",
-      colorscheme = "poimandres",
+      -- colorscheme = "poimandres",
       -- colorscheme = "darkvoid",
       -- colorscheme = "nordbones",
       -- colorscheme = "flow",
