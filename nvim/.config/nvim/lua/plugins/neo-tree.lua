@@ -14,4 +14,8 @@ return {
     },
     log_level = "warn",
   },
+  keys = {
+    -- Replaced by Oil
+    { "<leader>e", false },
+  },
 }
