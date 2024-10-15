@@ -17,3 +17,9 @@ vim.api.nvim_create_autocmd(
 
 -- Setup the :TSC command to get project-wide diagnostics
 require("tsc").setup()
+
+-- When renaming, display the new name as live preview in the buffer
+-- https://github.com/smjonas/inc-rename.nvim
+require("inc_rename").setup({
+  input_buffer_type = "dressing",
+})

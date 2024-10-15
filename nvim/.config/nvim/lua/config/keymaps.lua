@@ -28,6 +28,18 @@ vim.keymap.set("n", "<leader>cx", ":LspRestart<CR>", { silent = true, desc = "Re
 -- Open full line diagnostic in a floating window to see the full error message
 vim.keymap.set("n", "gl", ":lua vim.diagnostic.open_float()<CR>", { silent = true, desc = "Show full line diagnostic" })
 
+-- Yank the line on `dd` only if it is non-empty
+vim.keymap.set("n", "dd", function()
+  if vim.fn.getline("."):match("^%s*$") then
+    return '"_dd'
+  end
+  return "dd"
+end, { expr = true })
+
+vim.keymap.set("n", "<leader>rn", function()
+  return ":IncRename " .. vim.fn.expand("<cword>")
+end, { expr = true, desc = "Rename" })
+
 -- Function to close diagnostic floats and other
 -- taken from: https://www.reddit.com/r/neovim/comments/1335pfc/is_there_any_generic_simple_way_to_close_floating/ji918lo/
 function Close_floats()
@@ -37,3 +49,6 @@ function Close_floats()
     end
   end
 end
+
+-- Execute selected code with SnipRun
+vim.keymap.set({ "n", "x", "v" }, "<leader>cr", ":SnipRun<CR>", { desc = "Execute code", silent = true })
