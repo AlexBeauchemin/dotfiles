@@ -12,8 +12,24 @@ return {
       tsserver = {
         enabled = false,
       },
+      -- use vtsls instead
       ts_ls = {
         enabled = false,
+      },
+      biome = {
+        enabled = true,
+        -- filetypes = { "html", "css", "javascript", "typescript", "svelte", "vue", "astro", "markdown", "json" },
+      },
+      -- Disable tailwin if no config file found
+      -- https://www.reddit.com/r/neovim/comments/12hptw4/help_disable_tailwindcss_lsp_when_no_config_file/
+      tailwindcss = {
+        hovers = true,
+        suggestions = true,
+        root_dir = function(fname)
+          local root_pattern =
+            require("lspconfig").util.root_pattern("tailwind.config.cjs", "tailwind.config.js", "postcss.config.js")
+          return root_pattern(fname)
+        end,
       },
       vtsls = {
         settings = {
