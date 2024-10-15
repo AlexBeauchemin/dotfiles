@@ -6,13 +6,19 @@ return {
     -- "folke/tokyonight.nvim",
     -- opts = { transparent = true, styles = { sidebars = "transparent", floats = "transparent" } },
     opts = {
-      disable = { background = true },
+      disable = {
+        background = true, -- Prevent the theme from setting the background (NeoVim then uses your terminal background)
+      },
       contrast = {
         -- cursorline = true,
       },
       custom_highlights = {
         CursorLine = { bg = "#202331" },
       },
+      styles = { -- Give comments style such as bold, italic, underline etc.
+        comments = { italic = true },
+      },
+      lualine_style = "stealth",
       plugins = { -- Uncomment the plugins that you use to highlight them
         -- Available plugins:
         -- "dap",
@@ -28,7 +34,7 @@ return {
         -- "lspsaga",
         "mini",
         "neogit",
-        -- "neotest",
+        "neotest",
         "neo-tree",
         -- "neorg",
         "noice",

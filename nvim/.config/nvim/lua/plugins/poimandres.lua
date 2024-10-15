@@ -3,8 +3,9 @@
 
 return {
   -- "olivercederborg/poimandres.nvim",
-  dir = "~/web/poimandres.nvim", -- "olivercederborg/poimandres.nvim
-  dev = true,
+  "sponkurtus2/poimandres.nvim",
+  -- dir = "~/web/poimandres.nvim", -- "olivercederborg/poimandres.nvim
+  -- dev = true,
   lazy = false,
   priority = 1000,
   config = function()
