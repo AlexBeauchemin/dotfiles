@@ -158,6 +158,9 @@ alias :lock='open -b com.apple.ScreenSaver.Engine'
 # Search and open the selected file in neovim
 alias fuzzy='fzf --preview="cat {}" | xargs -r nvim'
 
+# Refresh state of all branches from origin. Useful with lazygit so it flags all the local branches that were merged/removed
+alias gitf='git fetch --all --prune --tags --prune-tags --progress'
+
 plugins+=( 
     # other plugins...
 )
