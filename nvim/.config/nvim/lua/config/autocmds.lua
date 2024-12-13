@@ -23,3 +23,8 @@ require("tsc").setup()
 require("inc_rename").setup({
   input_buffer_type = "dressing",
 })
+
+-- TODO: Find a way to implement this to send eslint errors to quickfix
+-- https://notes.eliasnorrby.com/vim/eslint-quickfix
+-- set makeprg=npx\ eslint\ -f\ unix\ --quiet\ 'src/**/*.{js,ts,jsx,tsx}'
+-- :make

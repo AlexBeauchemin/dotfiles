@@ -4,4 +4,6 @@ return {
   { "zbirenbaum/copilot-cmp", enabled = false },
   -- { "tris203/precognition.nvim", enabled = false },
   { "mvllow/modes.nvim", enabled = false },
+  -- replaced with blink
+  { "hrsh7th/nvim-cmp", enabled = false },
 }
