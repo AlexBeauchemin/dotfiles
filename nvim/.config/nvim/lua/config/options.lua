@@ -8,3 +8,6 @@ vim.opt.jumpoptions = "stack"
 -- vim.lsp.inlay_hint.enable(false)
 -- vim.g.zenbones_transparent_background = true
 -- vim.g.nordbones_transparent_background = true
+
+-- TODO: remove this and make the default picker (fzf-lua) look better
+vim.g.lazyvim_picker = "telescope"
