@@ -1,8 +1,8 @@
 ; https://jvns.ca/blog/2024/02/16/popular-git-config-options/
 [user]
-  email = alexbeauchemin01@gmail.com
-  name = Alex Beauchemin
-  signingKey = 764C3D89490A73D93CBE99F47793470B9162F4FC
+	email = alexbeauchemin01@gmail.com
+	name = Alex Beauchemin
+	signingKey = 764C3D89490A73D93CBE99F47793470B9162F4FC
 [merge]
   tool = vscode
   ; conflictstyle = zdiff3
@@ -14,12 +14,12 @@
 [difftool "vscode"]
   cmd = code --wait --diff $LOCAL $REMOTE
 [gpg]
-  program = gpg
-  format = openpgp
+	program = gpg2
+	format = openpgp
 [commit]
-  gpgSign = true
+	gpgSign = true
 [tag]
-  forceSignAnnotated = false
+	forceSignAnnotated = false
 
 [init]
   defaultBranch = main
@@ -28,8 +28,8 @@
 [branch]
   sort = -committerdate
 [gpg "ssh"]
-  program = ssh-keygen
-  allowedSignersFile =
+	program = 
+	allowedSignersFile = 
 
 ; Change user email and name for work repos
 ; https://blog.hao.dev/how-to-use-different-git-emails-for-personal-and-work-repositories-on-the-same-machine
