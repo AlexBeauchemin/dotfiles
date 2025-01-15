@@ -58,6 +58,7 @@ return {
       -- colorscheme = "poimandres",
       -- colorscheme = "tokyobones",
       -- colorscheme = "aura-dark",
+      -- colorscheme = "tokyonight",
       -- colorscheme = "tokyonight-moon",
       -- colorscheme = "catppuccin-mocha",
       -- colorscheme = "carbonfox",
