@@ -11,11 +11,15 @@ vim.keymap.set("n", "<Esc>", function()
   vim.cmd("cclose")
   vim.cmd("Neotree close")
   Close_floats()
+  local suggestion = require("supermaven-nvim.completion_preview")
+  if suggestion.has_suggestion() then
+    suggestion.hide()
+  end
 end, { silent = true })
 
 -- Map M-l to M-CR for insert and normal mode
 -- to accept supermaven suggestion using alt+l in addition to alt+enter
-vim.keymap.set({ "i", "n" }, "<M-l>", "<M-CR>", { remap = true })
+vim.keymap.set({ "i", "n" }, "<M-l>", "<S-CR>", { remap = true })
 
 -- Replicate the behavior of the ctrl+backspace/alt+backspace key in other softwares (delete word under the cursor)
 vim.keymap.set("n", "<C-BS>", "daw", { remap = true, silent = true })
