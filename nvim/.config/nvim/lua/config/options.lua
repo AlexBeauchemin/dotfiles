@@ -11,3 +11,5 @@ vim.opt.jumpoptions = "stack"
 
 -- TODO: remove this and make the default picker (fzf-lua) look better
 vim.g.lazyvim_picker = "telescope"
+
+vim.g.lazyvim_prettier_needs_config = true
