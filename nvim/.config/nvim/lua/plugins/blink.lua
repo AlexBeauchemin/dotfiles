@@ -18,5 +18,9 @@ return {
     --     selection = "manual",
     --   },
     -- },
+    -- menu = {
+    -- Don't automatically show the completion menu
+    -- auto_show = false,
+    -- },
   },
 }

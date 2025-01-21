@@ -7,4 +7,5 @@ return {
   -- replaced with blink
   { "hrsh7th/nvim-cmp", enabled = false },
   { "MrSloth-dev/Switcheroo.nvim", enabled = false },
+  { "nvimtools/none-ls.nvim", enabled = false },
 }
