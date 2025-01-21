@@ -24,6 +24,27 @@ require("inc_rename").setup({
   input_buffer_type = "dressing",
 })
 
+-- Close on "q"
+-- https://www.reddit.com/r/neovim/comments/1i2xw2m/share_your_favorite_autocmds/m7ies9g/
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {
+    "help",
+    "startuptime",
+    "qf",
+    "lspinfo",
+    "man",
+    "checkhealth",
+    "neotest-output-panel",
+    "neotest-summary",
+    "lazy",
+  },
+  command = [[
+          nnoremap <buffer><silent> q :close<CR>
+          nnoremap <buffer><silent> <ESC> :close<CR>
+          set nobuflisted
+      ]],
+})
+
 -- TODO: Find a way to implement this to send eslint errors to quickfix
 -- https://notes.eliasnorrby.com/vim/eslint-quickfix
 -- set makeprg=npx\ eslint\ -f\ unix\ --quiet\ 'src/**/*.{js,ts,jsx,tsx}'
