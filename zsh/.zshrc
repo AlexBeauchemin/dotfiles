@@ -160,6 +160,8 @@ alias fuzzy='fzf --preview="cat {}" | xargs -r nvim'
 
 # Refresh state of all branches from origin. Useful with lazygit so it flags all the local branches that were merged/removed
 alias gitf='git fetch --all --prune --tags --prune-tags --progress'
+# Fix errors similar to `cannot lock ref ...`
+alias gitfix="find .git -type f -name '*.lock' -delete && git gc --prune=now && git remote prune origin && rm -rf .git/refs/remotes/origin"
 
 plugins+=( 
     # other plugins...
