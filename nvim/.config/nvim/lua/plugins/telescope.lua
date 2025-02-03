@@ -50,6 +50,7 @@ return {
           ["<C-k>"] = require("telescope.actions").cycle_history_prev,
         },
       },
+
     },
   },
 }

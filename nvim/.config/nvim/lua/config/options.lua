@@ -9,7 +9,7 @@ vim.opt.jumpoptions = "stack"
 -- vim.g.zenbones_transparent_background = true
 -- vim.g.nordbones_transparent_background = true
 
--- TODO: remove this and make the default picker (fzf-lua) look better
-vim.g.lazyvim_picker = "telescope"
+vim.g.lazyvim_picker = "snacks"
+-- vim.g.lazyvim_picker = "telescope"
 
 vim.g.lazyvim_prettier_needs_config = true
