@@ -9,18 +9,21 @@ return {
     -- see the "default configuration" section below for full documentation on how to define
     -- your own keymap.
     keymap = {
-      preset = "enter",
+      --   preset = "enter",
       ["<Tab>"] = { "select_next", "fallback" },
       ["<S-Tab>"] = { "select_prev", "fallback" },
     },
-    -- completion = {
-    --   list = {
-    --     selection = "manual",
-    --   },
-    -- },
-    -- menu = {
-    -- Don't automatically show the completion menu
-    -- auto_show = false,
-    -- },
+    completion = {
+      list = {
+        max_items = 30,
+        selection = {
+          auto_insert = false,
+          preselect = false,
+        },
+      },
+      menu = {
+        auto_show = false,
+      },
+    },
   },
 }
