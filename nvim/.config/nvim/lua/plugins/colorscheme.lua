@@ -52,15 +52,24 @@ return {
     },
   },
   {
+    "dgox16/oldworld.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      variant = "oled",
+    },
+  },
+  {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "material",
+      -- colorscheme = "oldworld",
+      colorscheme = "catppuccin-mocha",
+      -- colorscheme = "material",
       -- colorscheme = "poimandres",
       -- colorscheme = "tokyobones",
       -- colorscheme = "aura-dark",
       -- colorscheme = "tokyonight",
       -- colorscheme = "tokyonight-moon",
-      -- colorscheme = "catppuccin-mocha",
       -- colorscheme = "carbonfox",
       -- colorscheme = "darkvoid",
       -- colorscheme = "nordbones",
