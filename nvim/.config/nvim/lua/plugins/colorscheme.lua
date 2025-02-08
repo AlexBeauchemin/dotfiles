@@ -1,4 +1,5 @@
 vim.g.material_style = "deep ocean"
+vim.g.nord_disable_background = true
 
 return {
   {
@@ -52,12 +53,132 @@ return {
     },
   },
   {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      flavour = "mocha", -- mocha, macchiato
+      transparent_background = true,
+      term_colors = true,
+    },
+  },
+  {
     "dgox16/oldworld.nvim",
     lazy = false,
     priority = 1000,
     opts = {
       variant = "oled",
     },
+  },
+  {
+    "baliestri/aura-theme",
+    lazy = false,
+    priority = 1000,
+    config = function(plugin)
+      vim.opt.rtp:append(plugin.dir .. "/packages/neovim")
+      -- vim.cmd([[colorscheme aura-dark]])
+    end,
+  },
+  {
+    "scottmckendry/cyberdream.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      transparent = true,
+      italic_comments = true,
+      hide_fillchars = true,
+      borderless_pickers = true,
+      terminal_colors = true,
+    },
+  },
+  {
+    "aliqyan-21/darkvoid.nvim",
+    -- Not sure why but when setting the opts object here, it prevent other colorschemes from loading properly
+    -- ie: if I change the default colorscheme in colorscheme.lua, it won't apply on load
+    -- opts = {
+    -- transparent = true,
+    -- glow = true,
+    --   -- colors = {
+    --     -- Make errors pop more
+    --     -- error = "#f7547f",
+    --   },
+    -- },
+  },
+  {
+    "0xstepit/flow.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      theme = {
+        style = "dark", --  "dark" | "light"
+        contrast = "default", -- "default" | "high"
+        transparent = true, -- true | false
+      },
+      colors = {
+        mode = "default", -- "default" | "dark" | "light"
+        fluo = "pink", -- "pink" | "cyan" | "yellow" | "orange" | "green"
+      },
+    },
+  },
+  {
+    "slugbyte/lackluster.nvim",
+    lazy = false,
+    priority = 1000,
+    init = function()
+      -- vim.cmd.colorscheme("lackluster")
+      -- vim.cmd.colorscheme("lackluster-hack") -- my favorite
+      -- vim.cmd.colorscheme("lackluster-mint")
+    end,
+  },
+  {
+    "EdenEast/nightfox.nvim",
+    opts = {
+      transparent = true,
+    },
+  },
+  {
+    "shaunsingh/nord.nvim",
+  },
+  { "fcancelinha/nordern.nvim", branch = "master", priority = 1000 },
+  -- https://github.com/olivercederborg/poimandres.nvim/issues/39
+  -- There an issue with colors once lsp/treesitter kicks in
+  {
+    -- "olivercederborg/poimandres.nvim",
+    "sponkurtus2/poimandres.nvim",
+    -- dir = "~/web/poimandres.nvim", -- "olivercederborg/poimandres.nvim
+    -- dev = true,
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("poimandres").setup({
+        disable_background = true,
+        disable_float_background = true,
+      })
+    end,
+  },
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      transparent = true,
+      style = "moon",
+      styles = {
+        sidebars = "transparent",
+        floats = "transparent",
+      },
+    },
+  },
+  {
+    "zenbones-theme/zenbones.nvim",
+    -- Optionally install Lush. Allows for more configuration or extending the colorscheme
+    -- If you don't want to install lush, make sure to set g:zenbones_compat = 1
+    -- In Vim, compat mode is turned on as Lush only works in Neovim.
+    dependencies = "rktjmp/lush.nvim",
+    -- lazy = false,
+    -- priority = 1000,
+    -- opts = {},
   },
   {
     "LazyVim/LazyVim",
