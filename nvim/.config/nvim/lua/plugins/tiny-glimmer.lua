@@ -2,6 +2,12 @@ return {
   "rachartier/tiny-glimmer.nvim",
   event = "TextYankPost",
   opts = {
-    transparency_color = "#000000",
+    refresh_interval_ms = 1,
+    animations = {
+      fade = {
+        from_color = "#a6e3a1",
+        to_color = "#000000",
+      },
+    },
   },
 }
