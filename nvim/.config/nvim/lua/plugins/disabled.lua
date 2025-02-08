@@ -9,4 +9,5 @@ return {
   { "MrSloth-dev/Switcheroo.nvim", enabled = false },
   { "nvimtools/none-ls.nvim", enabled = false },
   { "nvim-telescope/telescope.nvim", enabled = false },
+  { "danielfalk/smart-open.nvim", enabled = false },
 }

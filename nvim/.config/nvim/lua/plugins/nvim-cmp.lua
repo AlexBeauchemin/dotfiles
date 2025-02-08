@@ -1,4 +1,5 @@
 -- Supertab setup https://www.lazyvim.org/configuration/recipes#supertab
+-- INFO: This plugin was replaced by blink, can delete this file
 return {
   "hrsh7th/nvim-cmp",
   ---@param opts cmp.ConfigSchema
