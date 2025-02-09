@@ -14,6 +14,10 @@ return {
       },
       sources = {
         files = { hidden = true },
+        explorer = {
+          layout = { layout = { position = "right" } },
+          hidden = true,
+        },
       },
     },
   },

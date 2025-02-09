@@ -9,7 +9,6 @@ vim.keymap.set("n", "<Esc>", function()
   Snacks.notifier.hide()
   vim.cmd("noh")
   vim.cmd("cclose")
-  vim.cmd("Neotree close")
   Close_floats()
   local suggestion = require("supermaven-nvim.completion_preview")
   if suggestion.has_suggestion() then

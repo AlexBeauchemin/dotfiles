@@ -10,4 +10,5 @@ return {
   { "nvimtools/none-ls.nvim", enabled = false },
   { "nvim-telescope/telescope.nvim", enabled = false },
   { "danielfalk/smart-open.nvim", enabled = false },
+  { "nvim-neo-tree/neo-tree.nvim", enabled = false },
 }
