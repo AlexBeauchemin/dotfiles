@@ -14,6 +14,7 @@ return {
       },
       sources = {
         files = { hidden = true },
+        grep = { hidden = true },
         explorer = {
           layout = { layout = { position = "right" } },
           hidden = true,
