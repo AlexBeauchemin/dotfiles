@@ -181,9 +181,15 @@ return {
     -- opts = {},
   },
   {
+    "nyoom-engineering/oxocarbon.nvim",
+  },
+  { "miikanissi/modus-themes.nvim", priority = 1000, opts = { transparent = false } },
+  {
     "LazyVim/LazyVim",
     opts = {
       -- colorscheme = "oldworld",
+      -- colorscheme = "oxocarbon",
+      -- colorscheme = "modus",
       colorscheme = "catppuccin-mocha",
       -- colorscheme = "material",
       -- colorscheme = "poimandres",
