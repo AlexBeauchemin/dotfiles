@@ -26,5 +26,6 @@ return {
   keys = {
     { "<leader><space>", false },
     { "<leader>ff", LazyVim.pick("smart"), desc = "Find Files (smart)" },
+    -- { "<leader>uC", function() Snacks.picker.colorschemes({ layout = { preset = "vscode" } }) end, desc = "Colorschemes" },
   },
 }

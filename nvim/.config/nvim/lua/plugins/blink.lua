@@ -1,5 +1,9 @@
 return {
   "saghen/blink.cmp",
+  -- optional: provides snippets for the snippet source
+  dependencies = { "rafamadriz/friendly-snippets" },
+  -- use a release tag to download pre-built binaries
+  version = "1.*",
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
   opts = {
@@ -25,5 +29,6 @@ return {
         auto_show = false,
       },
     },
+    fuzzy = { implementation = "prefer_rust" },
   },
 }

@@ -10,11 +10,11 @@ return {
   },
   keys = {
     {
-      "<leader>a",
+      "<leader>A",
       function()
         require("harpoon"):list():add()
       end,
-      desc = "harpoon file",
+      desc = "harpoon add",
     },
     {
       "<leader><leader>",

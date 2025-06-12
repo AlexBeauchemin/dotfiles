@@ -56,3 +56,5 @@ end
 
 -- Execute selected code with SnipRun
 vim.keymap.set({ "n", "x", "v" }, "<leader>cr", ":SnipRun<CR>", { desc = "Execute code", silent = true })
+
+vim.keymap.set("n", "<leader>bc", ":CopyPath<CR>", { silent = true, desc = "Copy path" })

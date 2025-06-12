@@ -16,7 +16,9 @@ vim.api.nvim_create_autocmd(
 )
 
 -- Setup the :TSC command to get project-wide diagnostics
-require("tsc").setup()
+require("tsc").setup({
+  run_as_monorepo = true,
+})
 
 -- When renaming, display the new name as live preview in the buffer
 -- https://github.com/smjonas/inc-rename.nvim
@@ -49,3 +51,12 @@ vim.api.nvim_create_autocmd("FileType", {
 -- https://notes.eliasnorrby.com/vim/eslint-quickfix
 -- set makeprg=npx\ eslint\ -f\ unix\ --quiet\ 'src/**/*.{js,ts,jsx,tsx}'
 -- :make
+
+-- Copy relative path of current buffer to the system clipboard
+-- Taken from https://www.reddit.com/r/neovim/comments/u221as/how_can_i_copy_the_current_buffers_relative_path/
+vim.api.nvim_create_user_command("CopyPath", function()
+  local path = vim.fn.expand("%:p")
+  vim.fn.setreg("+", path)
+  vim.notify("" .. path .. '" to the clipboard!')
+end, {})
+

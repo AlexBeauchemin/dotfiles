@@ -4,6 +4,15 @@ return {
   -- event = "VeryLazy",
   --- @class lspconfig
   opts = {
+    -- remove virtual text from diagnostics
+    -- see: https://www.reddit.com/r/neovim/comments/1jl0air/how_to_disable_doubled_diagnostics/
+    -- and https://github.com/LazyVim/LazyVim/issues/1964#issuecomment-1798178555
+    -- opts = {
+    --   diagnostics = {
+    --     virtual_text = false,
+    --   },
+    -- },
+    --
     -- Disable eslint formatting as it's slow and timing out on big projects
     -- taken from https://github.com/LazyVim/LazyVim/pull/4225/files
     setup = {
@@ -60,6 +69,7 @@ return {
           workingDirectories = { mode = "auto" },
           -- Let prettier handle the formatting
           format = false,
+          run = "onSave",
         },
       },
       -- Disable tailwind if no config file found
@@ -75,6 +85,13 @@ return {
       },
       vtsls = {
         enabled = true,
+        -- Monorepo support ? Tried to make it work correctly when working with a worspace as the CWD from a monorepo, but it didn't work
+        -- See: https://github.com/neovim/nvim-lspconfig/issues/1830
+        -- root_dir = function(fname)
+        --   local root_pattern = require("lspconfig").util.root_pattern(".git")
+        --   return root_pattern(fname)
+        -- end,
+        --
         -- -- See this config if more performance issues
         -- -- https://github.com/d7omdev/nvim/blob/b038a73e0bb2ebe879b4ef7868c11394ec10d053/lua/plugins/lspconfig.lua#L111C3-L111C115
         -- settings = {

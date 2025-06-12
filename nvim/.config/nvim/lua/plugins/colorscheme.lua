@@ -1,5 +1,7 @@
 vim.g.material_style = "deep ocean"
 vim.g.nord_disable_background = true
+vim.g.oh_lucy_transparent_background = true
+vim.g.minimal_transparent_background = true
 
 return {
   {
@@ -183,23 +185,29 @@ return {
   {
     "nyoom-engineering/oxocarbon.nvim",
   },
-  { "miikanissi/modus-themes.nvim", priority = 1000, opts = { transparent = false } },
+  { "miikanissi/modus-themes.nvim", priority = 1000, opts = { transparent = true } },
+  { "Yazeed1s/minimal.nvim" },
+  { "Yazeed1s/oh-lucy.nvim" },
   {
     "LazyVim/LazyVim",
     opts = {
       -- colorscheme = "oldworld",
       -- colorscheme = "oxocarbon",
       -- colorscheme = "modus",
+      -- colorscheme = "minimal",
+      -- colorscheme = "minimal-base16",
+      -- colorscheme = "oh-lucy",
       colorscheme = "catppuccin-mocha",
+      -- colorscheme = "night-owl",
       -- colorscheme = "material",
       -- colorscheme = "poimandres",
+      -- colorscheme = "nordbones",
       -- colorscheme = "tokyobones",
       -- colorscheme = "aura-dark",
       -- colorscheme = "tokyonight",
       -- colorscheme = "tokyonight-moon",
       -- colorscheme = "carbonfox",
       -- colorscheme = "darkvoid",
-      -- colorscheme = "nordbones",
       -- colorscheme = "flow",
       -- colorscheme = "cyberdream",
       -- colorscheme = "nordern",

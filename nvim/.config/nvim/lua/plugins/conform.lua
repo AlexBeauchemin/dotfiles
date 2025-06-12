@@ -15,6 +15,11 @@ return {
         "prettier",
         stop_after_first = true,
       },
+      json = {
+        "biome",
+        "prettier",
+        stop_after_first = true,
+      },
     },
     formatters = {
       biome = { require_cwd = true },
