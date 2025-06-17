@@ -57,6 +57,8 @@ return {
         settings = {
           format = true,
         },
+        -- Use the biome version used in the project
+        cmd = { "npx", "biome", "lsp-proxy" },
         -- filetypes = { "html", "css", "javascript", "typescript", "svelte", "vue", "astro", "markdown", "json" },
       },
       -- oxlint = {
