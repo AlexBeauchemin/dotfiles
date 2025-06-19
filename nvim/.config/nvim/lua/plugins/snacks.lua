@@ -9,9 +9,9 @@ return {
           -- filename_first = true,
         },
       },
-      filter = {
-        cwd = true,
-      },
+      -- filter = {
+      --   cwd = true,
+      -- },
       sources = {
         files = { hidden = true },
         grep = { hidden = true },

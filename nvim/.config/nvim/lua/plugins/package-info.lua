@@ -12,6 +12,6 @@ return {
     })
   end,
   keys = {
-    { "<leader>nu", "<cmd>lua require('package-info').change_version()<cr>", desc = "Update package version" },
+    { "<leader>cu", "<cmd>lua require('package-info').change_version()<cr>", desc = "Update package version" },
   },
 }

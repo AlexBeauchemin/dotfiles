@@ -176,8 +176,10 @@ plugins+=(
 # Init zoxide and replace cd
 eval "$(zoxide init zsh)"
 alias cd='z'
+
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+export VOLTA_FEATURE_PNPM=1 
 
 PATH=~/.console-ninja/.bin:$PATH
 # The next line updates PATH for the Google Cloud SDK.
