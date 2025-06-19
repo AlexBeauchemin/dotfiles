@@ -31,3 +31,7 @@ vim.g.lazyvim_prettier_needs_config = true
 --     },
 --   },
 -- })
+
+-- https://www.reddit.com/r/neovim/comments/1ajpdrx/lazyvim_weird_live_grep_root_dir_functionality_in/kp3cab9/
+-- vim.g.root_spec = { "lsp", { ".git", "lua" }, "cwd" }
+vim.g.root_spec = { "cwd" }
