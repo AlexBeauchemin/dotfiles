@@ -137,9 +137,6 @@ export PATH="$HOME/bin:$PATH";
 # Add '~/.local/bin' to the `$PATH`
 export PATH="$HOME/.local/bin:$PATH";
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
 # Force git to be in English
 alias git='LANG=en_US git'
 
@@ -177,10 +174,6 @@ plugins+=(
 eval "$(zoxide init zsh)"
 alias cd='z'
 
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
-export VOLTA_FEATURE_PNPM=1 
-
 PATH=~/.console-ninja/.bin:$PATH
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/alex/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/alex/google-cloud-sdk/path.zsh.inc'; fi
@@ -200,3 +193,20 @@ setopt globdots
 . "/Users/alex/.deno/env"
 # bun completions
 [ -s "/Users/alex/.bun/_bun" ] && source "/Users/alex/.bun/_bun"
+
+# Carapace autocompletion
+export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
+zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
+source <(carapace _carapace)
+
+
+# fnm
+FNM_PATH="/opt/homebrew/opt/fnm/bin"
+if [ -d "$FNM_PATH" ]; then
+  eval "`fnm env`"
+fi
+# Automatic version switching
+eval "$(fnm env --use-on-cd --version-file-strategy=recursive --corepack-enabled --resolve-engines --shell zsh)"
+
+# vim mode for command line
+source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
