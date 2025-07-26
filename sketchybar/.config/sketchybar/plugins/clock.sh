@@ -4,4 +4,5 @@
 # the item invoking this script:
 # https://felixkratz.github.io/SketchyBar/config/events#events-and-scripting
 
+# TO change the date format, change it in plugins/calendar.sh instead
 sketchybar --set "$NAME" label="$(date '+%d/%m %H:%M')"

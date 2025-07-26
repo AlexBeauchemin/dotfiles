@@ -189,6 +189,14 @@ return {
   { "Yazeed1s/minimal.nvim" },
   { "Yazeed1s/oh-lucy.nvim" },
   {
+    "webhooked/kanso.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      transparent = true, -- true | false
+    },
+  },
+  {
     "LazyVim/LazyVim",
     opts = {
       -- colorscheme = "oldworld",
@@ -198,6 +206,7 @@ return {
       -- colorscheme = "minimal-base16",
       -- colorscheme = "oh-lucy",
       colorscheme = "catppuccin-mocha",
+      -- colorscheme = "kanso",
       -- colorscheme = "night-owl",
       -- colorscheme = "material",
       -- colorscheme = "poimandres",

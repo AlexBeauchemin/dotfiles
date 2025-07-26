@@ -2,6 +2,7 @@
 -- INFO: This plugin was replaced by blink, can delete this file
 return {
   "hrsh7th/nvim-cmp",
+  enabled = false,
   ---@param opts cmp.ConfigSchema
   -- opts = function(_, opts)
   --   local has_words_before = function()
