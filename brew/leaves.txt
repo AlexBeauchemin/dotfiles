@@ -4,6 +4,7 @@ code-minimap
 deno
 difftastic
 fd
+felixkratz/formulae/borders
 felixkratz/formulae/sketchybar
 fnm
 fzf
@@ -13,7 +14,7 @@ go
 helix
 jq
 lazygit
-lua
+luarocks
 noahgorstein/tap/jqp
 node
 onefetch
