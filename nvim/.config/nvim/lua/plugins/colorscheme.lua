@@ -63,6 +63,9 @@ return {
       flavour = "mocha", -- mocha, macchiato
       transparent_background = true,
       term_colors = true,
+      float = {
+        transparent = true,
+      },
     },
   },
   {

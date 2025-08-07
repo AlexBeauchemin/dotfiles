@@ -9,6 +9,7 @@ return {
     require("package-info").setup({
       autostart = true,
       hide_up_to_date = true,
+      package_manager = "pnpm",
     })
   end,
   keys = {
