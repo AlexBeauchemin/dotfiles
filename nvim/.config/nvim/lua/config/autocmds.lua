@@ -3,9 +3,20 @@
 -- Add any additional autocmds here
 
 -- Attach twoslash-queries to vtsls
-require("lspconfig")["vtsls"].setup({
-  on_attach = function(client, bufnr)
-    require("twoslash-queries").attach(client, bufnr)
+-- require("lspconfig")["vtsls"].setup({
+--   on_attach = function(client, bufnr)
+--     require("twoslash-queries").attach(client, bufnr)
+--   end,
+-- })
+-- INFO: Using this instead of the above, as the above on_attach seems to override any config I set in nvim-lspconfig
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if not client then
+      return
+    elseif client.name == "vtsls" then
+      require("twoslash-queries").attach(client, args.buf)
+    end
   end,
 })
 
