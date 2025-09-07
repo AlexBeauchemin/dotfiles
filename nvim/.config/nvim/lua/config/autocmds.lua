@@ -16,6 +16,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
       return
     elseif client.name == "vtsls" then
       require("twoslash-queries").attach(client, args.buf)
+    elseif client.name == "tsgo" then
+      require("twoslash-queries").attach(client, args.buf)
     end
   end,
 })
@@ -98,3 +100,10 @@ vim.api.nvim_create_user_command("CopyPath", function()
   vim.fn.setreg("+", path)
   vim.notify("" .. path .. '" to the clipboard!')
 end, {})
+
+vim.lsp.config["tsgo"] = {
+  cmd = { "tsgo", "--lsp", "--stdio" },
+  filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+  root_markers = { "tsconfig.json", "jsconfig.json", "package.json", ".git", "tsconfig.base.json" },
+}
+vim.lsp.enable("tsgo")
