@@ -43,18 +43,24 @@ return {
     formatters_by_ft = {
       typescript = {
         "biome",
-        "prettier",
-        stop_after_first = true,
+        -- https://github.com/stevearc/conform.nvim/pull/755/files
+        "biome-organize-imports",
+        -- "prettier",
+        -- stop_after_first = true,
       },
       typescriptreact = {
         "biome",
-        "prettier",
-        stop_after_first = true,
+        -- https://github.com/stevearc/conform.nvim/pull/755/files
+        "biome-organize-imports",
+        -- "prettier",
+        -- stop_after_first = true,
       },
       json = {
         "biome",
-        "prettier",
-        stop_after_first = true,
+        -- https://github.com/stevearc/conform.nvim/pull/755/files
+        "biome-organize-imports",
+        -- "prettier",
+        -- stop_after_first = true,
       },
     },
     formatters = {
