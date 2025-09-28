@@ -97,14 +97,21 @@ return {
         -- -- https://github.com/d7omdev/nvim/blob/b038a73e0bb2ebe879b4ef7868c11394ec10d053/lua/plugins/lspconfig.lua#L111C3-L111C115
         settings = {
           vtsls = {
+            enableMoveToFileCodeAction = true,
+            autoUseWorkspaceTsdk = true,
             experimental = {
+              maxInlayHintLength = 30,
               completion = {
                 enableServerSideFuzzyMatch = true,
-                entriesLimit = 20,
+                entriesLimit = 50,
               },
             },
           },
           typescript = {
+            preferences = {
+              includePackageJsonAutoImports = "off",
+              -- autoImportFileExcludePatterns = [],
+            },
             -- Commented out this as performance became really bad, even freezing neovim when opening a ts/tsx file with a large project
             -- If uncommenting, make sure performance is still decent after tryign a big frontend project
             tsserver = {
