@@ -1,0 +1,8 @@
+return {
+  "A7Lavinraj/fyler.nvim",
+  dependencies = { "nvim-mini/mini.icons" },
+  opts = {},
+  keys = {
+    { "<leader>e", "<cmd>Fyler kind=float<cr>", desc = "File explorer (Fyler)" },
+  },
+}
