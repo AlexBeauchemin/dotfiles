@@ -153,6 +153,7 @@ alias qq='exit'
 alias :qa='exit'
 alias lock='open -b com.apple.ScreenSaver.Engine'
 alias :lock='open -b com.apple.ScreenSaver.Engine'
+alias gg='echo wp'
 
 # Search and open the selected file in neovim
 alias fuzzy='fzf --preview="cat {}" | xargs -r nvim'

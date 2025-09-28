@@ -4,6 +4,9 @@ return {
   -- event = "VeryLazy",
   --- @class lspconfig
   opts = {
+    -- Disable inlay hints from the lsp
+    -- Can use <leader>uh to do the same
+    inlay_hints = { enabled = false },
     -- remove virtual text from diagnostics
     -- see: https://www.reddit.com/r/neovim/comments/1jl0air/how_to_disable_doubled_diagnostics/
     -- and https://github.com/LazyVim/LazyVim/issues/1964#issuecomment-1798178555
@@ -77,13 +80,9 @@ return {
       -- Disable tailwind if no config file found
       -- https://www.reddit.com/r/neovim/comments/12hptw4/help_disable_tailwindcss_lsp_when_no_config_file/
       tailwindcss = {
-        hovers = true,
-        suggestions = true,
-        root_dir = function(fname)
-          local root_pattern =
-            require("lspconfig").util.root_pattern("tailwind.config.cjs", "tailwind.config.js", "postcss.config.js")
-          return root_pattern(fname)
-        end,
+        -- hovers = true,
+        -- suggestions = true,
+        filetypes = { "templ", "vue", "html", "astro", "javascript", "typescript", "react", "htmlangular" },
       },
       vtsls = {
         enabled = true,

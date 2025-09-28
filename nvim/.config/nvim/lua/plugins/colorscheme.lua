@@ -66,6 +66,11 @@ return {
       float = {
         transparent = true,
       },
+      custom_highlights = function(colors)
+        return {
+          FlashLabel = { fg = colors.crust, bg = colors.red },
+        }
+      end,
     },
   },
   {

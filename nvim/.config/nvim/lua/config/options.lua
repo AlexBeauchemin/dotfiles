@@ -35,3 +35,15 @@ vim.g.lazyvim_prettier_needs_config = true
 -- https://www.reddit.com/r/neovim/comments/1ajpdrx/lazyvim_weird_live_grep_root_dir_functionality_in/kp3cab9/
 -- vim.g.root_spec = { "lsp", { ".git", "lua" }, "cwd" }
 vim.g.root_spec = { "cwd" }
+
+-- Autocomplete, from: https://github.com/echasnovski/nvim/blob/ad7e513e0cb941c7be5bbe88e77153eeaab86f5a/plugin/10_options.lua#L99-L103
+-- and https://www.reddit.com/r/neovim/comments/1n7al7n/how_do_you_set_up_completion_behaviour/
+vim.o.completeopt = "menuone,noselect" -- Show popup even with one item and don't autoselect first
+if vim.fn.has("nvim-0.11") == 1 then
+  vim.o.completeopt = "menuone,noselect,fuzzy,nosort" -- Use fuzzy matching for built-in completion
+end
+vim.o.complete = ".,w,b,kspell" -- Use spell check and don't use tags for completion
+
+-- Spelling ===================================================================
+vim.o.spelllang = "en" -- Define spelling dictionaries
+vim.o.spelloptions = "camel" -- Treat parts of camelCase words as seprate words

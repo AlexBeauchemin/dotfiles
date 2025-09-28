@@ -6,10 +6,10 @@
 -- Close notifications, quicfix, neotree and un-highlight search results
 vim.keymap.set("n", "<Esc>", function()
   -- require("notify").dismiss({ silent = true, pending = true })
-  Snacks.notifier.hide()
+  snacks.notifier.hide()
   vim.cmd("noh")
   vim.cmd("cclose")
-  Close_floats()
+  close_floats()
   local suggestion = require("supermaven-nvim.completion_preview")
   if suggestion.has_suggestion() then
     suggestion.hide()
