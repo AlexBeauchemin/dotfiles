@@ -121,6 +121,7 @@ export GOOGLE_APPLICATION_CREDENTIALS="/Users/alex/credentials/entr-operations-d
 export DISABLE_OPENCOLLECTIVE=true
 
 export NODE_ENV=development
+export PLANNED_ENV=development
 
 # Add neovim path
 export PATH="$PATH:$HOME/nvim-macos/bin" 
