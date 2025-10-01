@@ -45,6 +45,16 @@ return {
       -- end,
     },
     servers = {
+      copilot = {
+        enabled = true,
+        -- Use the correct node version for copilot, it requires v22+ but some of my projects use node v20 via fnm
+        -- Remove this once all my projects are on v22+
+        cmd = {
+          vim.fn.expand("~/.local/share/fnm/node-versions/v24.4.1/installation/bin/node"),
+          vim.fn.expand("~/.local/share/nvim/mason/bin/copilot-language-server"),
+          "--stdio",
+        },
+      },
       tsserver = {
         enabled = false,
       },
