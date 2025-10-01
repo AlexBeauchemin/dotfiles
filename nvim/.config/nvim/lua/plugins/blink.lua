@@ -13,13 +13,13 @@ return {
     -- see the "default configuration" section below for full documentation on how to define
     -- your own keymap.
     keymap = {
-      --   preset = "enter",
+      preset = "enter",
       ["<Tab>"] = { "select_next", "fallback" },
       ["<S-Tab>"] = { "select_prev", "fallback" },
     },
     completion = {
       list = {
-        max_items = 30,
+        max_items = 100,
         selection = {
           auto_insert = false,
           preselect = false,
@@ -30,5 +30,6 @@ return {
       },
     },
     fuzzy = { implementation = "prefer_rust" },
+    -- opts_extend = { "sources.default" },
   },
 }
