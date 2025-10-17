@@ -17,11 +17,18 @@ return {
   end,
   keys = {
     {
-      "<leader>dd",
+      "<leader>dt",
       function()
         require("tiny-inline-diagnostic").toggle()
       end,
       desc = "Toggle TinyInlineDiagnostics",
+    },
+    {
+      "<leader>dd",
+      function()
+        vim.diagnostic.open_float()
+      end,
+      desc = "Open Diagnostic",
     },
   },
 }
