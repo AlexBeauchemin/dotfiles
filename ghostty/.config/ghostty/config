@@ -15,10 +15,10 @@ theme = poimandres
 # window-decoration = true
 macos-option-as-alt = left
 macos-titlebar-style = hidden
-window-decoration = false
+window-decoration = true
 # window-padding-y = 8,4
-window-padding-x = 10
-window-padding-y = 10
+window-padding-x = 12
+window-padding-y = 8
 window-padding-balance = true
 background = #000000
 
