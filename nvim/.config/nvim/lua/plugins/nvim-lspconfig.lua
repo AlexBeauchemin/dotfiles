@@ -78,7 +78,7 @@ return {
       --   enabled = true,
       -- },
       eslint = {
-        enabled = true,
+        enabled = false,
         settings = {
           -- helps eslint find the eslintrc when it's placed in a subfolder instead of the cwd root
           workingDirectories = { mode = "auto" },
@@ -95,7 +95,7 @@ return {
         filetypes = { "templ", "vue", "html", "astro", "javascript", "typescript", "react", "htmlangular" },
       },
       vtsls = {
-        enabled = true,
+        enabled = false,
         -- Monorepo support ? Tried to make it work correctly when working with a worspace as the CWD from a monorepo, but it didn't work
         -- See: https://github.com/neovim/nvim-lspconfig/issues/1830
         -- root_dir = function(fname)
