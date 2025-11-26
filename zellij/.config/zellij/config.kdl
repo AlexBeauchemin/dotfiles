@@ -3,6 +3,7 @@ keybinds {
         // default is Ctrl + h / conflicts with my custom kitty config to move panes
         // bind "Ctrl m" { SwitchToMode "Move"; }
         // bind "Alt m" { SwitchToMode "Move"; }
+        bind "Ctrl a" { Clear; }
     }
     shared_except "move" "locked" {
         // bind "Ctrl m" { SwitchToMode "Move"; }
