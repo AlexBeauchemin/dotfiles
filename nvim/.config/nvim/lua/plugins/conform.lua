@@ -57,15 +57,11 @@ return {
       },
       json = {
         "biome",
-        -- https://github.com/stevearc/conform.nvim/pull/755/files
-        "biome-organize-imports",
-        -- "prettier",
-        -- stop_after_first = true,
       },
     },
     formatters = {
       biome = {
-        require_cwd = true,
+        require_cwd = false,
         -- Use the biome version used in the project
         -- command = "npx",
         -- args = { "biome", "format", "--stdin-file-path", "$FILENAME" },

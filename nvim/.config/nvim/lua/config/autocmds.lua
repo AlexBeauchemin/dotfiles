@@ -28,9 +28,10 @@ vim.api.nvim_create_autocmd(
   { desc = "autosave", pattern = "*", command = "silent! update" }
 )
 
--- Setup the :TSC command to get project-wide diagnostics
 require("tsc").setup({
-  run_as_monorepo = true,
+  -- Setup the :TSC command to get project-wide diagnostics
+  -- run_as_monorepo = true,
+  -- use_trouble_qflist = true,
 })
 
 -- When renaming, display the new name as live preview in the buffer

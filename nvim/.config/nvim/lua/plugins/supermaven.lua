@@ -1,4 +1,7 @@
 return {
+  -- TODO: Supermaven is being sunset november 30 2025, potential alternative: ~https://github.com/monkoose/neocodeium~ looks like future is uncertain for that one too
+  -- Or maybe https://github.com/augmentcode/augment.vim
+  -- or probably sidekick with native lsp and copilot
   "supermaven-inc/supermaven-nvim",
   -- TODO: Try VeryLazy instead of VimEnter, if causing issues, go back to VimEnter
   event = { "VeryLazy" },

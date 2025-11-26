@@ -15,6 +15,9 @@ return {
     float = {
       padding = 2,
       max_width = 100,
+      -- Remove or set to nil to remove the border
+      -- https://github.com/stevearc/oil.nvim/pull/643
+      border = "rounded",
       -- max_height = 0,
     },
     win_options = {
