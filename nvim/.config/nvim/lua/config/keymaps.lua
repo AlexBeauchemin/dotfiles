@@ -59,3 +59,14 @@ end
 vim.keymap.set({ "n", "x", "v" }, "<leader>cr", ":SnipRun<CR>", { desc = "Execute code", silent = true })
 
 vim.keymap.set("n", "<leader>bc", ":CopyPath<CR>", { silent = true, desc = "Copy path" })
+
+-- Quickly go to the end/start of the line while in insert mode.
+vim.keymap.set({ "i", "c" }, "<C-l>", "<C-o>A", { desc = "Go to the end of the line" })
+vim.keymap.set({ "i", "c" }, "<C-h>", "<C-o>^", { desc = "Go to the end of the line" })
+
+-- Easy surround selection
+-- https://github.com/desdic/neovim/blob/main/lua/core/keymaps.lua#L91
+vim.keymap.set("x", '"', 'c"<C-r>""<Esc>', { noremap = true, silent = true })
+vim.keymap.set("x", "'", "c'<C-r>\"'<Esc>", { noremap = true, silent = true })
+vim.keymap.set("x", "(", 'c(<C-r>")<Esc>', { noremap = true, silent = true })
+vim.keymap.set("x", "{", 'c{<C-r>"}<Esc>', { noremap = true, silent = true })
