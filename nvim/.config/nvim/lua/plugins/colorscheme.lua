@@ -3,9 +3,12 @@ vim.g.nord_disable_background = true
 vim.g.oh_lucy_transparent_background = true
 vim.g.minimal_transparent_background = true
 
+local disable_alternate = true
+
 return {
   {
     "marko-cerovac/material.nvim",
+    enabled = not disable_alternate,
     -- "folke/tokyonight.nvim",
     -- opts = { transparent = true, styles = { sidebars = "transparent", floats = "transparent" } },
     opts = {
@@ -75,6 +78,7 @@ return {
   },
   {
     "dgox16/oldworld.nvim",
+    enabled = not disable_alternate,
     lazy = false,
     priority = 1000,
     opts = {
@@ -83,6 +87,7 @@ return {
   },
   {
     "baliestri/aura-theme",
+    enabled = not disable_alternate,
     lazy = false,
     priority = 1000,
     config = function(plugin)
@@ -92,6 +97,7 @@ return {
   },
   {
     "scottmckendry/cyberdream.nvim",
+    enabled = not disable_alternate,
     lazy = false,
     priority = 1000,
     opts = {
@@ -104,6 +110,7 @@ return {
   },
   {
     "aliqyan-21/darkvoid.nvim",
+    enabled = not disable_alternate,
     -- Not sure why but when setting the opts object here, it prevent other colorschemes from loading properly
     -- ie: if I change the default colorscheme in colorscheme.lua, it won't apply on load
     -- opts = {
@@ -117,6 +124,7 @@ return {
   },
   {
     "0xstepit/flow.nvim",
+    enabled = not disable_alternate,
     lazy = false,
     priority = 1000,
     opts = {
@@ -133,6 +141,7 @@ return {
   },
   {
     "slugbyte/lackluster.nvim",
+    enabled = not disable_alternate,
     lazy = false,
     priority = 1000,
     init = function()
@@ -143,19 +152,22 @@ return {
   },
   {
     "EdenEast/nightfox.nvim",
+    enabled = not disable_alternate,
     opts = {
       transparent = true,
     },
   },
   {
     "shaunsingh/nord.nvim",
+    enabled = not disable_alternate,
   },
-  { "fcancelinha/nordern.nvim", branch = "master", priority = 1000 },
+  { "fcancelinha/nordern.nvim", enabled = not disable_alternate, branch = "master", priority = 1000 },
   -- https://github.com/olivercederborg/poimandres.nvim/issues/39
   -- There an issue with colors once lsp/treesitter kicks in
   {
     -- "olivercederborg/poimandres.nvim",
     "sponkurtus2/poimandres.nvim",
+    enabled = not disable_alternate,
     -- dir = "~/web/poimandres.nvim", -- "olivercederborg/poimandres.nvim
     -- dev = true,
     lazy = false,
@@ -169,6 +181,7 @@ return {
   },
   {
     "folke/tokyonight.nvim",
+    enabled = not disable_alternate,
     lazy = false,
     priority = 1000,
     opts = {
@@ -182,6 +195,7 @@ return {
   },
   {
     "zenbones-theme/zenbones.nvim",
+    enabled = not disable_alternate,
     -- Optionally install Lush. Allows for more configuration or extending the colorscheme
     -- If you don't want to install lush, make sure to set g:zenbones_compat = 1
     -- In Vim, compat mode is turned on as Lush only works in Neovim.
@@ -192,12 +206,19 @@ return {
   },
   {
     "nyoom-engineering/oxocarbon.nvim",
+    enabled = not disable_alternate,
   },
-  { "miikanissi/modus-themes.nvim", priority = 1000, opts = { transparent = true } },
-  { "Yazeed1s/minimal.nvim" },
-  { "Yazeed1s/oh-lucy.nvim" },
+  {
+    "miikanissi/modus-themes.nvim",
+    enabled = not disable_alternate,
+    priority = 1000,
+    opts = { transparent = true },
+  },
+  { "Yazeed1s/minimal.nvim", enabled = not disable_alternate },
+  { "Yazeed1s/oh-lucy.nvim", enabled = not disable_alternate },
   {
     "webhooked/kanso.nvim",
+    enabled = not disable_alternate,
     lazy = false,
     priority = 1000,
     opts = {
