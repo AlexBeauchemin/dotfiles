@@ -114,7 +114,7 @@ export EDITOR="nvim"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export GOOGLE_APPLICATION_CREDENTIALS="/Users/alex/credentials/entr-operations-dev.json"
+export GOOGLE_APPLICATION_CREDENTIALS="/Users/alex/credentials/credentials-dev.json"
 
 # Remove some ads when running "npm install"
 # https://www.npmjs.com/package/opencollective-postinstall
@@ -214,3 +214,11 @@ eval "$(fnm env --use-on-cd --version-file-strategy=recursive --corepack-enabled
 
 # vim mode for command line
 source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+
+# pnpm
+export PNPM_HOME="/Users/alex/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
