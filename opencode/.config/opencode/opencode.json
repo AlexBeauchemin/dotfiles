@@ -1,23 +1,8 @@
 {
 	"$schema": "https://opencode.ai/config.json",
 	"theme": "catppuccin",
-	"model": "openrouter/anthropic/claude-sonnet-4.5",
-	"provider": {
-		"openrouter": {
-			"name": "OpenRouter",
-			"models": {
-				"anthropic/claude-sonnet-4.5": {
-					"name": "OpenRouter: Claude Sonnet 4.5"
-				},
-				"anthropic/claude-sonnet-4": {
-					"name": "OpenRouter: Claude Sonnet 4"
-				},
-				"anthropic/claude-sonnet-3.5": {
-					"name": "OpenRouter: Claude Sonnet 3.5"
-				}
-			}
-		}
-	},
+	"model": "opencode/claude-opus-4-5",
+	"default_agent": "plan",
 	"mcp": {
 		"next-devtools": {
 			"type": "local",
@@ -26,6 +11,11 @@
 		"Sentry": {
 			"type": "remote",
 			"url": "https://mcp.sentry.dev/mcp/planned/planned-ui"
+		},
+		"context7": {
+			"type": "remote",
+			"url": "https://mcp.context7.com/mcp",
+			"enabled": true
 		}
 	},
 	"autoshare": false,
