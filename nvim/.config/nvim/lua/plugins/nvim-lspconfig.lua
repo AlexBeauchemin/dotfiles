@@ -22,6 +22,38 @@ return {
       eslint = function()
         return false
       end,
+      -- Use setup hook to fully override tailwindcss config (prevents filetypes merging)
+      -- Only trigger tailwindcss lsp on tsx files
+      tailwindcss = function(_, opts)
+        local util = require("lspconfig.util")
+        vim.lsp.config("tailwindcss", {
+          filetypes = { "typescriptreact" }, -- Only .tsx files
+          root_dir = function(bufnr, on_dir)
+            local fname = vim.api.nvim_buf_get_name(bufnr)
+            -- Tailwind v3: JS/TS config files
+            local v3_root = util.root_pattern(
+              "tailwind.config.js",
+              "tailwind.config.cjs",
+              "tailwind.config.mjs",
+              "tailwind.config.ts"
+            )(fname)
+            if v3_root then
+              on_dir(v3_root)
+              return
+            end
+            -- Tailwind v4: CSS-first, uses postcss or vite plugin
+            local v4_root =
+              util.root_pattern("postcss.config.js", "postcss.config.cjs", "postcss.config.mjs", "postcss.config.ts")(
+                fname
+              )
+            if v4_root then
+              on_dir(v4_root)
+            end
+          end,
+        })
+        vim.lsp.enable("tailwindcss")
+        return true -- Prevent LazyVim from setting up the server again
+      end,
       -- oxlint = function()
       --   local util = require("lspconfig.util")
       --   return {
@@ -46,7 +78,7 @@ return {
     },
     servers = {
       copilot = {
-        enabled = true,
+        enabled = false,
         -- Use the correct node version for copilot, it requires v22+ but some of my projects use node v20 via fnm
         -- Remove this once all my projects are on v22+
         cmd = {
@@ -61,9 +93,18 @@ return {
       ts_ls = {
         enabled = false,
       },
+      ["docker-language-server"] = {
+        enabled = true,
+      },
+      ["gh-actions-language-server"] = {
+        enabled = true,
+      },
       -- TODO: Re-enable but only disable for .env files
       bashls = {
         enabled = false,
+      },
+      tsgo = {
+        enabled = true,
       },
       biome = {
         enabled = true,
@@ -71,7 +112,9 @@ return {
           format = true,
         },
         -- Use the biome version used in the project
-        cmd = { "npx", "biome", "lsp-proxy" },
+        -- Disabled using it via npx as it's slower and might swallow errors and exist codes
+        -- cmd = { "npx", "biome", "lsp-proxy" },
+        -- Use Mason-installed biome binary instead
         -- filetypes = { "html", "css", "javascript", "typescript", "svelte", "vue", "astro", "markdown", "json" },
       },
       -- oxlint = {
@@ -87,13 +130,7 @@ return {
           run = "onSave",
         },
       },
-      -- Disable tailwind if no config file found
-      -- https://www.reddit.com/r/neovim/comments/12hptw4/help_disable_tailwindcss_lsp_when_no_config_file/
-      tailwindcss = {
-        -- hovers = true,
-        -- suggestions = true,
-        filetypes = { "templ", "vue", "html", "astro", "javascript", "typescript", "react", "htmlangular" },
-      },
+      -- tailwindcss is configured in setup hook below to prevent filetypes merging
       vtsls = {
         enabled = false,
         -- Monorepo support ? Tried to make it work correctly when working with a worspace as the CWD from a monorepo, but it didn't work

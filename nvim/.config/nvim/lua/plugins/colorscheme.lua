@@ -226,15 +226,29 @@ return {
     },
   },
   {
+    "serhez/teide.nvim",
+    enabled = not disable_alternate,
+    lazy = false,
+    priority = 1000,
+    opts = {
+      transparent = true,
+      styles = {
+        floats = "transparent",
+        sidebars = "transparent",
+      },
+    },
+  },
+  {
     "LazyVim/LazyVim",
     opts = {
+      colorscheme = "catppuccin-mocha",
+      -- colorscheme = "teide-darker",
       -- colorscheme = "oldworld",
       -- colorscheme = "oxocarbon",
       -- colorscheme = "modus",
       -- colorscheme = "minimal",
       -- colorscheme = "minimal-base16",
       -- colorscheme = "oh-lucy",
-      colorscheme = "catppuccin-mocha",
       -- colorscheme = "kanso",
       -- colorscheme = "night-owl",
       -- colorscheme = "material",

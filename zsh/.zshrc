@@ -122,6 +122,10 @@ export DISABLE_OPENCOLLECTIVE=true
 
 export NODE_ENV=development
 export PLANNED_ENV=development
+export DOTENV_ENV=development
+# Make sure node processes we spawn have enough memory
+# For example to run `TSC` in neovim on the frontend, so it doesn't crash
+export NODE_OPTIONS=--max_old_space_size=8192
 
 # Add neovim path
 export PATH="$PATH:$HOME/nvim-macos/bin" 

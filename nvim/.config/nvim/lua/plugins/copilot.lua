@@ -1,5 +1,6 @@
 return {
   "zbirenbaum/copilot.lua",
+  enabled = false,
   opts = {
     -- Use the correct node version for copilot, it requires v22+ but some of my projects use node v20 via fnm
     -- Remove this once all my projects are on v22+

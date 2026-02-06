@@ -102,9 +102,58 @@ vim.api.nvim_create_user_command("CopyPath", function()
   vim.notify("" .. path .. '" to the clipboard!')
 end, {})
 
-vim.lsp.config["tsgo"] = {
-  cmd = { "tsgo", "--lsp", "--stdio" },
-  filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
-  root_markers = { "tsconfig.json", "jsconfig.json", "package.json", ".git", "tsconfig.base.json" },
-}
-vim.lsp.enable("tsgo")
+-- vim.lsp.config["tsgo"] = {
+--   cmd = { "tsgo", "--lsp", "--stdio" },
+--   filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+--   root_markers = { "tsconfig.json", "jsconfig.json", "package.json", ".git", "tsconfig.base.json" },
+-- }
+-- vim.lsp.enable("tsgo")
+
+-- expose current node version used
+-- equivalent to running ":echo system(['node', '--version'])"
+vim.api.nvim_create_user_command("WhichNode", function()
+  local version = vim.fn.system("node --version")
+  vim.notify("Node.js version: " .. vim.trim(version))
+end, {})
+
+-- expose current tsgo version used
+-- equivalent to running ":echo system(['tsgo', '--version'])"
+vim.api.nvim_create_user_command("WhichTSGO", function()
+  local version = vim.fn.system("tsgo --version")
+  vim.notify("TSGO version: " .. vim.trim(version))
+end, {})
+
+-- DEBUG: Log LSP shutdown timing to identify slow exit
+-- Remove this once you've identified the culprit
+vim.api.nvim_create_autocmd("VimLeavePre", {
+  callback = function()
+    local clients = vim.lsp.get_clients()
+    if #clients == 0 then
+      return
+    end
+    local log_file = vim.fn.stdpath("cache") .. "/lsp_shutdown.log"
+    local f = io.open(log_file, "a")
+    if not f then
+      return
+    end
+    f:write("\n--- " .. os.date("%Y-%m-%d %H:%M:%S") .. " ---\n")
+    f:write("Active LSP clients at exit:\n")
+    for _, client in ipairs(clients) do
+      f:write("  - " .. client.name .. " (id: " .. client.id .. ")\n")
+    end
+    f:close()
+  end,
+})
+
+-- Force quit: stops all LSP clients immediately then quits
+-- Use <leader>Q when normal :qa is slow
+vim.keymap.set("n", "<leader>Q", function()
+  -- Force stop all LSP clients without waiting for graceful shutdown
+  for _, client in ipairs(vim.lsp.get_clients()) do
+    client:stop(true) -- true = force
+  end
+  -- Small delay to let force-stop signals propagate, then quit
+  vim.defer_fn(function()
+    vim.cmd("qa!")
+  end, 100)
+end, { desc = "Force quit (kills LSP)" })

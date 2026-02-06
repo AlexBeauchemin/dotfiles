@@ -74,10 +74,12 @@ return {
     -- Replace relative path by full file path
     table.remove(opts.sections.lualine_c, 4)
     table.insert(opts.sections.lualine_c, 4, { "filename", path = 1 })
+    -- opts.theme = "teide"
   end,
   -- opts = {
-  --   --   -- theme = "nightfly",
-  --   --   -- theme = "poimandres",
-  --   -- sections = { lualine_d = { lsp } },
+  --   -- theme = "nightfly",
+  --   -- theme = "poimandres",
+  --   -- theme = "teide",
+  -- sections = { lualine_d = { lsp } },
   -- },
 }

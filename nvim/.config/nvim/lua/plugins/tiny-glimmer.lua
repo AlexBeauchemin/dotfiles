@@ -7,7 +7,7 @@ return {
   priority = 10, -- Low priority to catch other plugins' keybindings
   config = function()
     require("tiny-glimmer").setup({
-      refresh_interval_ms = 1,
+      -- refresh_interval_ms = 1,
       transparency_color = "#333333",
       -- animations = {
       --   fade = {
