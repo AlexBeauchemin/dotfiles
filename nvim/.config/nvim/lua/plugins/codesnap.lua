@@ -10,4 +10,12 @@ return {
     "CodeSnapSaveHighlight",
     "CodeSnapASCII",
   },
+  opts = {
+    code_config = {
+      breadcrumbs = {
+        enable = true,
+        separator = "/",
+      },
+    },
+  },
 }

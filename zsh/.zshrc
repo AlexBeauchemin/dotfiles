@@ -170,6 +170,11 @@ alias gitf='git fetch --all --prune --tags --prune-tags --progress'
 # Fix errors similar to `cannot lock ref ...`
 alias gitfix="find .git -type f -name '*.lock' -delete && git gc --prune=now && git remote prune origin && rm -rf .git/refs/remotes/origin"
 
+# Default opencode to open with exposed port. This allows opencode.nvim to send requests to the existing opencode process
+# So I can use the already open opencode process existing in a different terminal window
+# Instead of opening a new one inside of neovim
+alias opencode='opencode --port'
+
 plugins+=( 
     # other plugins...
 )
