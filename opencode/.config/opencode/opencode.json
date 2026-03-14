@@ -1,22 +1,31 @@
 {
-  "$schema": "https://opencode.ai/config.json",
-  "model": "github-copilot/claude-opus-4.6",
-  "default_agent": "plan",
-  "mcp": {
-    "next-devtools": {
-      "type": "local",
-      "command": ["npx", "-y", "next-devtools-mcp@latest"]
-    },
-    "Sentry": {
-      "type": "remote",
-      "url": "https://mcp.sentry.dev/mcp/planned/planned-ui"
-    },
-    "context7": {
-      "type": "remote",
-      "url": "https://mcp.context7.com/mcp",
-      "enabled": true
-    }
-  },
-  "autoshare": false,
-  "autoupdate": true
+	"$schema": "https://opencode.ai/config.json",
+	"model": "github-copilot/claude-opus-4.6",
+	"default_agent": "plan",
+	"mcp": {
+		"next-devtools": {
+			"type": "local",
+			"command": ["npx", "-y", "next-devtools-mcp@latest"]
+		},
+		"Sentry": {
+			"type": "remote",
+			"url": "https://mcp.sentry.dev/mcp/planned/planned-ui"
+		},
+		"context7": {
+			"type": "remote",
+			"url": "https://mcp.context7.com/mcp",
+			"enabled": true
+		},
+		"planned": {
+			"type": "remote",
+			"url": "https://functions.api.planned.com/mcp",
+			"headers": {
+				"Authorization": "Bearer {env:PLANNED_MCP_TOKEN}",
+				"use-custom-token": "true"
+			},
+			"enabled": true
+		}
+	},
+	"autoshare": false,
+	"autoupdate": true
 }
