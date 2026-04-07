@@ -20,6 +20,29 @@ return {
           hidden = true,
         },
       },
+      -----------------------------------------------------------
+      -- WORKAROUND: Neovim 0.12 prompt buffer cursor jump bug
+      -- On Neovim 0.12+, a right_align virtual text extmark in
+      -- snacks picker input (the spinner/totals display) causes
+      -- the cursor to miscalculate its column at EOL on prompt
+      -- buffers, pushing the cursor back after the first char.
+      -- Setting virtualedit="all" on the input window prevents
+      -- the cursor from snapping to invalid positions.
+      --
+      -- Upstream issues:
+      --   https://github.com/folke/snacks.nvim/issues/2810
+      --   https://github.com/folke/snacks.nvim/issues/2796
+      --   https://github.com/folke/snacks.nvim/issues/2707
+      --
+      -- TODO: Check if a fix has been pushed or if this is still necessary
+      -----------------------------------------------------------
+      win = {
+        input = {
+          wo = {
+            virtualedit = "all",
+          },
+        },
+      },
     },
     dashboard = {
       preset = {
