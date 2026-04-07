@@ -26,6 +26,7 @@
 			"enabled": true
 		}
 	},
+	"plugin": ["@mohak34/opencode-notifier@latest"],
 	"autoshare": false,
 	"autoupdate": true
 }
