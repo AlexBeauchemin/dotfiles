@@ -23,21 +23,23 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 -- Auto save all the things
-vim.api.nvim_create_autocmd(
-  { "FocusLost", "ModeChanged", "TextChanged", "BufEnter" },
-  { desc = "autosave", pattern = "*", command = "silent! update" }
-)
+vim.api.nvim_create_autocmd({ "FocusLost", "ModeChanged", "TextChanged", "BufEnter" }, {
+  desc = "autosave",
+  pattern = "*",
+  -- skip update when the buffer has a non-empty buftype (scratch buffers, prompts, nofile buffers, etc.)
+  -- This prevents conflicts and errors when trying to save a buffer which is not meant to be saved
+  callback = function(args)
+    local bt = vim.bo[args.buf].buftype
+    if bt == "" and vim.bo[args.buf].modified then
+      vim.cmd("silent! update")
+    end
+  end,
+})
 
 require("tsc").setup({
   -- Setup the :TSC command to get project-wide diagnostics
   -- run_as_monorepo = true,
   -- use_trouble_qflist = true,
-})
-
--- When renaming, display the new name as live preview in the buffer
--- https://github.com/smjonas/inc-rename.nvim
-require("inc_rename").setup({
-  input_buffer_type = "dressing",
 })
 
 -- Close on "q"
