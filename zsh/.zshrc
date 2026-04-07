@@ -136,8 +136,6 @@ export PATH="$PATH:$HOME/android_sdk/cmdline-tools/latest/bin"
 # Add brew to path
 export PATH=/opt/homebrew/bin:$PATH
 
-eval "$(starship init zsh)"
-
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH";
 
@@ -173,7 +171,7 @@ alias gitfix="find .git -type f -name '*.lock' -delete && git gc --prune=now && 
 # Default opencode to open with exposed port. This allows opencode.nvim to send requests to the existing opencode process
 # So I can use the already open opencode process existing in a different terminal window
 # Instead of opening a new one inside of neovim
-alias opencode='opencode --port'
+# alias opencode='opencode --port'
 
 plugins+=( 
     # other plugins...
@@ -182,6 +180,16 @@ plugins+=(
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# fnm - keep this before starship to prevent node init warnings
+FNM_PATH="/opt/homebrew/opt/fnm/bin"
+if [ -d "$FNM_PATH" ]; then
+  eval "`fnm env`"
+fi
+# Automatic version switching
+eval "$(fnm env --use-on-cd --version-file-strategy=recursive --corepack-enabled --resolve-engines --shell zsh)"
+
+# Keep starship after fnm to prevent node init warnings
+eval "$(starship init zsh)"
 
 # Init zoxide and replace cd
 eval "$(zoxide init zsh)"
@@ -211,15 +219,6 @@ setopt globdots
 export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
 zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
 source <(carapace _carapace)
-
-
-# fnm
-FNM_PATH="/opt/homebrew/opt/fnm/bin"
-if [ -d "$FNM_PATH" ]; then
-  eval "`fnm env`"
-fi
-# Automatic version switching
-eval "$(fnm env --use-on-cd --version-file-strategy=recursive --corepack-enabled --resolve-engines --shell zsh)"
 
 # vim mode for command line
 source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
