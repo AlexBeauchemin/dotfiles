@@ -41,9 +41,10 @@ vim.keymap.set("n", "dd", function()
   return "dd"
 end, { expr = true })
 
-vim.keymap.set("n", "<leader>rn", function()
-  return ":IncRename " .. vim.fn.expand("<cword>")
-end, { expr = true, desc = "Rename" })
+-- Already implemented as <leader>cr in the lazyvim extra set up
+-- vim.keymap.set("n", "<leader>rn", function()
+--   return ":IncRename " .. vim.fn.expand("<cword>")
+-- end, { expr = true, desc = "Rename" })
 
 -- Function to close diagnostic floats and other
 -- taken from: https://www.reddit.com/r/neovim/comments/1335pfc/is_there_any_generic_simple_way_to_close_floating/ji918lo/
