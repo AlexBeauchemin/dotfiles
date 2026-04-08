@@ -35,14 +35,15 @@ return {
       --   https://github.com/folke/snacks.nvim/issues/2707
       --
       -- TODO: Check if a fix has been pushed or if this is still necessary
+      -- Update: It seems the issue is with mawkler/modicator.nvim, disabling that plugin fixes the issue
       -----------------------------------------------------------
-      win = {
-        input = {
-          wo = {
-            virtualedit = "all",
-          },
-        },
-      },
+      -- win = {
+      --   input = {
+      --     wo = {
+      --       virtualedit = "all",
+      --     },
+      --   },
+      -- },
     },
     dashboard = {
       preset = {

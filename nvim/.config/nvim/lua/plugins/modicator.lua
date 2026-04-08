@@ -1,5 +1,7 @@
 return {
   "mawkler/modicator.nvim",
+  -- Disabled as this breaks the snack's picker input. See: https://github.com/folke/snacks.nvim/issues/2810
+  enabled = false,
   dependencies = "catppuccin/nvim", -- Add your colorscheme plugin here
   init = function()
     -- These are required for Modicator to work
