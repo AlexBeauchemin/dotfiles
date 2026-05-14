@@ -27,8 +27,7 @@ return {
     keymaps = {
       ["q"] = "actions.close",
       ["<esc>"] = "actions.close",
-      -- Same as <CR>, save and don't open in a split
-      ["<C-s>"] = "actions.select",
+      ["<C-s>"] = "actions.save",
     },
   },
   keys = {

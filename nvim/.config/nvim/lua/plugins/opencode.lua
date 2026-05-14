@@ -65,5 +65,18 @@ return {
     vim.keymap.set("n", "<S-C-d>", function()
       require("opencode").command("messages_half_page_down")
     end, { desc = "Messages half page down" })
+
+    -- Double-<Esc> exits terminal-mode in the opencode TUI buffer.
+    -- Single <Esc> still reaches the TUI (popups, pickers, etc.).
+    vim.api.nvim_create_autocmd("TermOpen", {
+      callback = function(ev)
+        if vim.api.nvim_buf_get_name(ev.buf):match("opencode") then
+          vim.keymap.set("t", "<Esc><Esc>", [[<C-\><C-n>]], {
+            buffer = ev.buf,
+            desc = "Exit opencode input (terminal-mode)",
+          })
+        end
+      end,
+    })
   end,
 }
