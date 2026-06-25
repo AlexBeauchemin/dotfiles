@@ -35,5 +35,13 @@
 ; https://blog.hao.dev/how-to-use-different-git-emails-for-personal-and-work-repositories-on-the-same-machine
 ; https://gist.github.com/Icaruk/f024a18093dc28ec1588cfb90efc32f7
 ; run "git config user.email" inside a work repo to test
-[includeIf "gitdir:~/planned/"]
+[includeIf "gitdir:~/planned/**"]
 	path = ~/.gitconfig-work
+[credential]
+	helper = osxkeychain
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
