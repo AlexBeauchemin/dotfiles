@@ -28,7 +28,7 @@ vim.keymap.set("n", "<M-BS>", "daw", { remap = true, silent = true })
 vim.keymap.set("i", "<M-BS>", "<esc>caw", { remap = true, silent = true })
 
 -- Restart language server
-vim.keymap.set("n", "<leader>cx", ":LspRestart<CR>", { silent = true, desc = "Restart LSP" })
+vim.keymap.set("n", "<leader>cx", ":lsp restart<CR>", { silent = true, desc = "Restart LSP" })
 
 -- Open full line diagnostic in a floating window to see the full error message
 vim.keymap.set("n", "gl", ":lua vim.diagnostic.open_float()<CR>", { silent = true, desc = "Show full line diagnostic" })
@@ -71,3 +71,7 @@ vim.keymap.set("x", '"', 'c"<C-r>""<Esc>', { noremap = true, silent = true })
 vim.keymap.set("x", "'", "c'<C-r>\"'<Esc>", { noremap = true, silent = true })
 vim.keymap.set("x", "(", 'c(<C-r>")<Esc>', { noremap = true, silent = true })
 vim.keymap.set("x", "{", 'c{<C-r>"}<Esc>', { noremap = true, silent = true })
+
+-- Quickly go to the start/end of the line while in normal mode.
+vim.keymap.set("n", "H", "^", { desc = "Go to the start of the line" })
+vim.keymap.set("n", "L", "$", { desc = "Go to the end of the line" })
