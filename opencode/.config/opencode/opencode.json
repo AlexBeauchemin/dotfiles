@@ -1,13 +1,13 @@
 {
 	"$schema": "https://opencode.ai/config.json",
-	"model": "fireworks-ai/accounts/fireworks/routers/kimi-k2p7-code-fast",
+	"model": "openai/gpt-5.6-sol",
 	"default_agent": "plan",
 	"agent": {
 		"plan": {
-			"model": "openrouter/openai/gpt-5.5"
+			"model": "openai/gpt-5.6-sol"
 		},
 		"build": {
-			"model": "fireworks-ai/accounts/fireworks/routers/kimi-k2p7-code-fast"
+			"model": "openai/gpt-5.6-terra"
 		}
 	},
 	"mcp": {
@@ -27,14 +27,46 @@
 		"planned": {
 			"type": "remote",
 			"url": "https://functions.api.planned.com/mcp",
-			"headers": {
-				"Authorization": "Bearer {env:PLANNED_MCP_TOKEN}",
-				"use-custom-token": "true"
-			},
+			"timeout": 60000,
 			"enabled": true
+		},
+		"planned-client-local": {
+			"type": "remote",
+			"url": "http://localhost:3000/client-mcp",
+			"timeout": 60000,
+			"enabled": true
+		},
+		"planned-local": {
+			"type": "remote",
+			"url": "http://localhost:3000/mcp",
+			"timeout": 60000,
+			"enabled": false
+		},
+		"Linear": {
+			"type": "remote",
+			"url": "https://mcp.linear.app/mcp"
 		}
 	},
 	"plugin": ["@mohak34/opencode-notifier@latest"],
+	"permission": {
+		"bash": {
+			"rm -rf *": "deny",
+			"rm -fr *": "deny",
+			"sudo rm -rf *": "deny",
+			"sudo rm -fr *": "deny",
+      "sudo *": "ask",
+      "git push *--force*": "ask",
+      "git reset --hard*": "ask",
+      "git clean -f*": "ask",
+		},
+		"skill": {
+			"caveman": "allow",
+			"caveman-commit": "allow",
+			"caveman-review": "allow",
+			"caveman-help": "allow",
+			"caveman-compress": "allow"
+		}
+	},
 	"autoshare": false,
 	"autoupdate": true
 }

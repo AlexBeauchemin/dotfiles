@@ -1,7 +1,7 @@
 background-opacity = 0.75
 background-blur-radius = 20
 # font-family = Fira Code
-font-family = Maple Mono Regular
+font-family = Maple Mono
 font-size = 13
 font-thicken = true
 adjust-cell-height = 10%
