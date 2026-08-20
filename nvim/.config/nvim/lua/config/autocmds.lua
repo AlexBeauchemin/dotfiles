@@ -18,6 +18,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
       require("twoslash-queries").attach(client, args.buf)
     elseif client.name == "tsgo" then
       require("twoslash-queries").attach(client, args.buf)
+    elseif client.name == "tsc" then
+      require("twoslash-queries").attach(client, args.buf)
     end
   end,
 })
@@ -104,13 +106,6 @@ vim.api.nvim_create_user_command("CopyPath", function()
   vim.notify("" .. path .. '" to the clipboard!')
 end, {})
 
--- vim.lsp.config["tsgo"] = {
---   cmd = { "tsgo", "--lsp", "--stdio" },
---   filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
---   root_markers = { "tsconfig.json", "jsconfig.json", "package.json", ".git", "tsconfig.base.json" },
--- }
--- vim.lsp.enable("tsgo")
-
 -- expose current node version used
 -- equivalent to running ":echo system(['node', '--version'])"
 vim.api.nvim_create_user_command("WhichNode", function()
@@ -118,11 +113,11 @@ vim.api.nvim_create_user_command("WhichNode", function()
   vim.notify("Node.js version: " .. vim.trim(version))
 end, {})
 
--- expose current tsgo version used
--- equivalent to running ":echo system(['tsgo', '--version'])"
-vim.api.nvim_create_user_command("WhichTSGO", function()
-  local version = vim.fn.system("tsgo --version")
-  vim.notify("TSGO version: " .. vim.trim(version))
+-- expose current typescript compiler version used
+-- equivalent to running ":echo system(['tsc', '--version'])"
+vim.api.nvim_create_user_command("WhichTSC", function()
+  local version = vim.fn.system("tsc --version")
+  vim.notify("TSC version: " .. vim.trim(version))
 end, {})
 
 -- DEBUG: Log LSP shutdown timing to identify slow exit

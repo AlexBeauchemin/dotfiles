@@ -103,7 +103,11 @@ return {
       bashls = {
         enabled = false,
       },
+      -- Deprecated in favor of tsc now that v7 is officially released
       tsgo = {
+        enabled = false,
+      },
+      tsc = {
         enabled = true,
       },
       biome = {

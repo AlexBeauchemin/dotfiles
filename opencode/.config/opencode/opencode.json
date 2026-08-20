@@ -17,7 +17,7 @@
 		},
 		"Sentry": {
 			"type": "remote",
-			"url": "https://mcp.sentry.dev/mcp/planned/planned-ui"
+			"url": "https://mcp.sentry.dev/mcp/planned"
 		},
 		"context7": {
 			"type": "remote",
@@ -45,6 +45,15 @@
 		"Linear": {
 			"type": "remote",
 			"url": "https://mcp.linear.app/mcp"
+		},
+		"Slack": {
+"type": "remote",
+  "url": "https://mcp.slack.com/mcp",
+  "oauth": {
+    "clientId": "{env:SLACK_MCP_CLIENT_ID}",
+    "clientSecret": "{env:SLACK_MCP_CLIENT_SECRET}",
+    "scope": "search:read.public search:read.private search:read.im search:read.mpim search:read.files search:read.users"
+  }
 		}
 	},
 	"plugin": ["@mohak34/opencode-notifier@latest"],
@@ -54,10 +63,10 @@
 			"rm -fr *": "deny",
 			"sudo rm -rf *": "deny",
 			"sudo rm -fr *": "deny",
-      "sudo *": "ask",
-      "git push *--force*": "ask",
-      "git reset --hard*": "ask",
-      "git clean -f*": "ask",
+			"sudo *": "ask",
+			"git push *--force*": "ask",
+			"git reset --hard*": "ask",
+			"git clean -f*": "ask"
 		},
 		"skill": {
 			"caveman": "allow",
