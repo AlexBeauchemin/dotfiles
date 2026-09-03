@@ -15,13 +15,13 @@ return {
               return require("opencode").snacks_picker_send(...)
             end,
           },
-          win = {
-            input = {
-              keys = {
-                ["<a-a>"] = { "opencode_send", mode = { "n", "i" } },
-              },
-            },
-          },
+          -- win = {
+          --   input = {
+          --     keys = {
+          --       ["<a-a>"] = { "opencode_send", mode = { "n", "i" } },
+          --     },
+          --   },
+          -- },
         },
       },
     },

@@ -196,7 +196,6 @@ eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 alias cd='z'
 
-PATH=~/.console-ninja/.bin:$PATH
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/alex/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/alex/google-cloud-sdk/path.zsh.inc'; fi
 

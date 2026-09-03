@@ -93,10 +93,10 @@ return {
       ts_ls = {
         enabled = false,
       },
-      ["docker-language-server"] = {
+      ["docker_language_server"] = {
         enabled = true,
       },
-      ["gh-actions-language-server"] = {
+      ["gh_actions_ls"] = {
         enabled = true,
       },
       -- TODO: Re-enable but only disable for .env files

@@ -1,5 +1,5 @@
 local function getLspName()
-  local buf_clients = vim.lsp.get_active_clients()
+  local buf_clients = vim.lsp.get_clients({ bufnr = 0 })
   local buf_ft = vim.bo.filetype
   if next(buf_clients) == nil then
     return "  No servers"
@@ -30,12 +30,9 @@ local function getLspName()
   end
 
   local ok, conform = pcall(require, "conform")
-  local formatters = table.concat(conform.formatters_by_ft[vim.bo.filetype], " ")
   if ok then
-    for formatter in formatters:gmatch("%w+") do
-      if formatter then
-        table.insert(buf_client_names, formatter)
-      end
+    for _, formatter in ipairs(conform.list_formatters(0)) do
+      table.insert(buf_client_names, formatter.name)
     end
   end
 

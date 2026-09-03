@@ -33,6 +33,8 @@ vim.api.nvim_create_autocmd({ "FocusLost", "ModeChanged", "TextChanged", "BufEnt
   callback = function(args)
     local bt = vim.bo[args.buf].buftype
     if bt == "" and vim.bo[args.buf].modified then
+      -- Force silent update, I don't want save failures to spam messages when auto-saving doesn't work
+      -- We'll rely on manual saves for that
       vim.cmd("silent! update")
     end
   end,
@@ -90,7 +92,7 @@ vim.api.nvim_create_user_command("FixWeirdChars", function()
     lines[i] = line
   end
   vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, lines)
-  vim.opt_local.modified = false
+  -- vim.opt_local.modified = false
 end, {})
 
 -- TODO: Find a way to implement this to send eslint errors to quickfix

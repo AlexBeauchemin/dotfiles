@@ -11,8 +11,8 @@ vim.keymap.set("n", "<Esc>", function()
   vim.cmd("noh")
   vim.cmd("cclose")
   Close_floats()
-  local suggestion = require("supermaven-nvim.completion_preview")
-  if suggestion.has_suggestion() then
+  local ok, suggestion = pcall(require, "supermaven-nvim.completion_preview")
+  if ok and suggestion.has_suggestion() then
     suggestion.hide()
   end
 end, { silent = true })
@@ -57,7 +57,8 @@ function Close_floats()
 end
 
 -- Execute selected code with SnipRun
-vim.keymap.set({ "n", "x", "v" }, "<leader>cr", ":SnipRun<CR>", { desc = "Execute code", silent = true })
+-- TODO: Change keymap, this one conflicts with inc-rename
+-- vim.keymap.set({ "n", "x", "v" }, "<leader>cr", ":SnipRun<CR>", { desc = "Execute code", silent = true })
 
 vim.keymap.set("n", "<leader>bc", ":CopyPath<CR>", { silent = true, desc = "Copy path" })
 
