@@ -151,7 +151,10 @@ alias git='LANG=en_US git'
 alias v='nvim'
 alias vim='nvim'
 alias oil='nvim -c Oil'
-alias oc='opencode --port'
+# opencode v1
+# alias oc='opencode --port'
+# opencode v2
+alias oc='opencode'
 
 alias asdf='cd ~/planned'
 alias qa='exit'

@@ -1,81 +1,91 @@
 {
-	"$schema": "https://opencode.ai/config.json",
-	"model": "openai/gpt-5.6-sol",
-	"default_agent": "plan",
-	"agent": {
-		"plan": {
-			"model": "openai/gpt-5.6-sol"
-		},
-		"build": {
-			"model": "openai/gpt-5.6-terra"
-		}
-	},
-	"mcp": {
-		"next-devtools": {
-			"type": "local",
-			"command": ["npx", "-y", "next-devtools-mcp@latest"]
-		},
-		"Sentry": {
-			"type": "remote",
-			"url": "https://mcp.sentry.dev/mcp/planned"
-		},
-		"context7": {
-			"type": "remote",
-			"url": "https://mcp.context7.com/mcp",
-			"enabled": true
-		},
-		"planned": {
-			"type": "remote",
-			"url": "https://functions.api.planned.com/mcp",
-			"timeout": 60000,
-			"enabled": true
-		},
-		"planned-client-local": {
-			"type": "remote",
-			"url": "http://localhost:3000/client-mcp",
-			"timeout": 60000,
-			"enabled": true
-		},
-		"planned-local": {
-			"type": "remote",
-			"url": "http://localhost:3000/mcp",
-			"timeout": 60000,
-			"enabled": false
-		},
-		"Linear": {
-			"type": "remote",
-			"url": "https://mcp.linear.app/mcp"
-		},
-		"Slack": {
-"type": "remote",
-  "url": "https://mcp.slack.com/mcp",
-  "oauth": {
-    "clientId": "{env:SLACK_MCP_CLIENT_ID}",
-    "clientSecret": "{env:SLACK_MCP_CLIENT_SECRET}",
-    "scope": "search:read.public search:read.private search:read.im search:read.mpim search:read.files search:read.users"
-  }
-		}
-	},
-	"plugin": ["@mohak34/opencode-notifier@latest"],
-	"permission": {
-		"bash": {
-			"rm -rf *": "deny",
-			"rm -fr *": "deny",
-			"sudo rm -rf *": "deny",
-			"sudo rm -fr *": "deny",
-			"sudo *": "ask",
-			"git push *--force*": "ask",
-			"git reset --hard*": "ask",
-			"git clean -f*": "ask"
-		},
-		"skill": {
-			"caveman": "allow",
-			"caveman-commit": "allow",
-			"caveman-review": "allow",
-			"caveman-help": "allow",
-			"caveman-compress": "allow"
-		}
-	},
-	"autoshare": false,
-	"autoupdate": true
+  "$schema": "https://opencode.ai/config.json",
+  "model": "openai/gpt-6-astra",
+  "default_agent": "plan",
+  "agents": {
+    "plan": {
+      "model": "openai/gpt-6-astra"
+    },
+    "build": {
+      "model": "openai/gpt-6-astra"
+    }
+  },
+  "mcp": {
+    "servers": {
+      "next-devtools": {
+        "type": "local",
+        "command": ["npx", "-y", "next-devtools-mcp@latest"]
+      },
+      "Sentry": {
+        "type": "remote",
+        "url": "https://mcp.sentry.dev/mcp/planned"
+      },
+      "context7": {
+        "type": "remote",
+        "url": "https://mcp.context7.com/mcp"
+      },
+      "planned": {
+        "type": "remote",
+        "url": "https://mcp.planned.com/mcp",
+        "timeout": { "catalog": 60000, "execution": 60000 }
+      },
+      "planned-internal": {
+        "type": "remote",
+        "url": "https://functions.api.planned.com/mcp",
+        "timeout": { "catalog": 60000, "execution": 60000 }
+      },
+      "planned-local": {
+        "type": "remote",
+        "url": "http://localhost:9000/mcp",
+        "timeout": { "catalog": 60000, "execution": 60000 },
+        "disabled": true
+      },
+      "planned-staging": {
+        "type": "remote",
+        "url": "https://mcp-staging.planned.com/mcp",
+        "timeout": { "catalog": 60000, "execution": 60000 },
+        "disabled": true
+      },
+      "planned-internal-local": {
+        "type": "remote",
+        "url": "http://localhost:3000/mcp",
+        "timeout": { "catalog": 60000, "execution": 60000 },
+        "disabled": true
+      },
+      "Linear": {
+        "type": "remote",
+        "url": "https://mcp.linear.app/mcp"
+      },
+      "Slack": {
+        "type": "remote",
+        "url": "https://mcp.slack.com/mcp",
+        "oauth": {
+          "client_id": "{env:SLACK_MCP_CLIENT_ID}",
+          "client_secret": "{env:SLACK_MCP_CLIENT_SECRET}",
+          "scope": "search:read.public search:read.private search:read.im search:read.mpim search:read.files search:read.users"
+        }
+      },
+      "github": {
+        "type": "remote",
+        "url": "https://api.githubcopilot.com/mcp/",
+        "oauth": false,
+        "headers": {
+          "Authorization": "Bearer {env:GITHUB_PERSONAL_ACCESS_TOKEN}"
+        }
+      }
+    }
+  },
+  "plugins": ["@mohak34/opencode-notifier@latest", "@dietrichgebert/ponytail"],
+  "permissions": [
+    { "action": "shell", "resource": "sudo *", "effect": "ask" },
+    { "action": "shell", "resource": "rm -rf *", "effect": "deny" },
+    { "action": "shell", "resource": "rm -fr *", "effect": "deny" },
+    { "action": "shell", "resource": "sudo rm -rf *", "effect": "deny" },
+    { "action": "shell", "resource": "sudo rm -fr *", "effect": "deny" },
+    { "action": "shell", "resource": "git push *--force*", "effect": "ask" },
+    { "action": "shell", "resource": "git reset --hard*", "effect": "ask" },
+    { "action": "shell", "resource": "git clean -f*", "effect": "ask" }
+  ],
+  "share": "manual",
+  "update": "auto"
 }
