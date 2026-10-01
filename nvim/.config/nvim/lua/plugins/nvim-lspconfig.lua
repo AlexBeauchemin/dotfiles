@@ -15,10 +15,13 @@ return {
     --     virtual_text = false,
     --   },
     -- },
-    --
-    -- Disable eslint formatting as it's slow and timing out on big projects
-    -- taken from https://github.com/LazyVim/LazyVim/pull/4225/files
     setup = {
+      oxfmt = function(_, opts)
+        opts.filetypes = vim.tbl_filter(function(ft)
+          return ft ~= "markdown"
+        end, opts.filetypes or vim.lsp.config.oxfmt.filetypes)
+      end,
+      -- Disable eslint formatting as it's slow and timing out on big projects
       eslint = function()
         return false
       end,
@@ -109,6 +112,21 @@ return {
       },
       tsc = {
         enabled = true,
+        keys = {
+          -- Use ts-expand-hover to expand types
+          {
+            "K",
+            function()
+              require("ts_expand_hover").hover()
+            end,
+            desc = "TypeScript expandable hover",
+          },
+        },
+        -- config = {
+        --   experimental = {
+        --     hoverVerbosityLevel = true,
+        --   },
+        -- },
       },
       biome = {
         enabled = true,
@@ -121,9 +139,13 @@ return {
         -- Use Mason-installed biome binary instead
         -- filetypes = { "html", "css", "javascript", "typescript", "svelte", "vue", "astro", "markdown", "json" },
       },
-      -- oxlint = {
-      --   enabled = true,
-      -- },
+      oxlint = {
+        enabled = true,
+      },
+      oxfmt = {},
+      actionlint = {
+        enabled = true,
+      },
       eslint = {
         enabled = false,
         settings = {

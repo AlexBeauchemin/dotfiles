@@ -186,3 +186,28 @@ vim.api.nvim_create_autocmd("User", {
     end
   end,
 })
+
+-- vim.lsp.config("fallow", {
+--   cmd = { "fallow-lsp" },
+--   filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
+--   root_markers = { ".fallowrc.json", "package.json", ".git" },
+--   init_options = {
+--     -- Every issue type is enabled by default. List only the ones you
+--     -- want to turn off; any key you omit stays enabled.
+--     -- issueTypes = {
+--     -- 	["circular-dependencies"] = false,
+--     -- },
+--   },
+-- })
+--
+-- vim.lsp.enable("fallow")
+
+-- For ts-expand-hover to work with typescript v7
+-- TODO: Check if this can be added to lspconfig instead
+vim.lsp.config("tsc", {
+  capabilities = { experimental = { hoverVerbosityLevel = true } },
+  -- Optional. The server cuts long types at 500 characters and shows
+  -- "... N more ..." in their place. Raise the cap to see big types whole.
+  settings = { ["js/ts"] = { maximumHoverLength = 1000 } },
+})
+vim.lsp.enable("tsc")
