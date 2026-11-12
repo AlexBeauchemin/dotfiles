@@ -11,14 +11,13 @@ vim.keymap.set("n", "<Esc>", function()
   vim.cmd("noh")
   vim.cmd("cclose")
   Close_floats()
-  local ok, suggestion = pcall(require, "supermaven-nvim.completion_preview")
-  if ok and suggestion.has_suggestion() then
-    suggestion.hide()
-  end
 end, { silent = true })
 
--- Map M-l to M-CR for insert and normal mode
--- to accept supermaven suggestion using alt+l in addition to alt+enter
+vim.keymap.set({ "i", "n" }, "<S-CR>", function()
+  vim.lsp.inline_completion.get()
+end, { desc = "Accept Copilot suggestion" })
+
+-- Keep Alt+l as an alias for Shift+Enter.
 vim.keymap.set({ "i", "n" }, "<M-l>", "<S-CR>", { remap = true })
 
 -- Replicate the behavior of the ctrl+backspace/alt+backspace key in other softwares (delete word under the cursor)
